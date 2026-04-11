@@ -3,59 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infrastructure Data Labs | Custom B2B Data Engineering</title>
+    <title>Infrastructure Data Labs | Intelligence on Demand</title>
     <style>
-        body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; color: #1a1a1a; max-width: 900px; margin: 0 auto; padding: 40px 20px; background-color: #ffffff; }
-        header { border-bottom: 2px solid #0052cc; padding-bottom: 30px; margin-bottom: 50px; }
-        h1 { color: #0052cc; margin: 0; font-size: 2.2em; letter-spacing: -0.5px; }
-        .tagline { font-size: 1.1em; color: #555; margin-top: 10px; }
-        .intro { font-size: 1.3em; color: #222; margin-bottom: 40px; font-weight: 400; max-width: 700px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .card { border: 1px solid #e1e4e8; padding: 30px; border-radius: 0px; background: #fcfcfc; transition: all 0.3s ease; }
-        .card:hover { border-color: #0052cc; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .badge { font-size: 0.75em; font-weight: 700; color: #0052cc; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 10px; }
-        h3 { margin: 0 0 15px 0; font-size: 1.4em; }
-        p { margin: 0; color: #444; }
-        .full-width { grid-column: 1 / -1; background: #0052cc; color: white; border: none; }
-        .full-width h3, .full-width p { color: white; }
-        .full-width .badge { color: #80b3ff; }
-        footer { margin-top: 80px; font-size: 0.85em; color: #999; text-align: center; border-top: 1px solid #eee; padding-top: 20px; }
+        :root {
+            --bg: #05070a;
+            --card-bg: #0d1117;
+            --accent: #0070f3;
+            --text-main: #f0f6fc;
+            --text-dim: #8b949e;
+            --border: #30363d;
+        }
+        body { 
+            font-family: 'Inter', -apple-system, system-ui, sans-serif; 
+            background-color: var(--bg); color: var(--text-main); 
+            margin: 0; padding: 0; line-height: 1.6;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 100px 24px; }
+        
+        .badge { 
+            display: inline-block; padding: 4px 12px; background: rgba(0, 112, 243, 0.1); 
+            color: var(--accent); border: 1px solid var(--accent); border-radius: 20px;
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 20px;
+        }
+
+        h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -2px; margin: 0; line-height: 1.1; }
+        .hero-desc { font-size: 1.5rem; color: var(--text-dim); margin: 30px 0 60px 0; max-width: 850px; }
+        .hero-desc strong { color: #fff; border-bottom: 2px solid var(--accent); }
+
+        .section-title { font-size: 0.9rem; text-transform: uppercase; color: var(--accent); letter-spacing: 2px; margin-bottom: 40px; display: block; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        
+        .card { 
+            background: var(--card-bg); padding: 40px; border: 1px solid var(--border);
+            border-radius: 1px; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .card:hover { border-color: var(--accent); background: #121820; transform: translateY(-2px); }
+        .card h3 { font-size: 1.3rem; margin: 0 0 15px 0; color: #fff; }
+        .card p { color: var(--text-dim); font-size: 0.95rem; }
+
+        .full-range { 
+            margin-top: 20px; background: linear-gradient(145deg, #0d1117 0%, #001a33 100%);
+            grid-column: 1 / -1; border-left: 4px solid var(--accent);
+        }
+
+        .cta-footer { 
+            margin-top: 80px; padding: 60px; text-align: center; border: 1px dashed var(--border);
+        }
+        .cta-footer h2 { font-size: 2rem; margin-bottom: 10px; }
+        
+        footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: #484f58; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Infrastructure Data Labs</h1>
-    <p class="tagline">B2B Data Intelligence & Industrial Asset Analysis</p>
-</header>
+<div class="container">
+    <div class="badge">Bespoke Industrial Intelligence</div>
+    <h1>We build the data you can't find.</h1>
+    
+    <p class="hero-desc">
+        We don't provide generic datasets. We architect <strong>custom data pipelines</strong> to solve unique infrastructure and supply chain challenges. Our core value is <strong>versatility</strong>: if the data exists, we will extract, clean, and deliver it according to your specific technical requirements.
+    </p>
 
-<div class="intro">
-    We don't provide generic datasets. We build <strong>custom data pipelines</strong> to solve specific infrastructure and supply chain challenges for global industrial leaders.
+    <span class="section-title">Capabilities & Scopes</span>
+    <div class="grid">
+        <div class="card">
+            <h3>Infrastructure & Energy</h3>
+            <p>From high-voltage grid layouts to substation modernization tenders. We map the physical and regulatory landscape of industrial assets.</p>
+        </div>
+        <div class="card">
+            <h3>Supply Chain Forensics</h3>
+            <p>Component lead-times, supplier ecosystem health, and material scarcity tracking across global fragmented sources.</p>
+        </div>
+        <div class="card full-range">
+            <h3>Universal Data Range (On-Demand)</h3>
+            <p>Our methodology is industry-agnostic. Whether you need IT/OT migration logs, software lifecycle inventories (EOL), or specific technical benchmarks, we build <strong>ad-hoc extraction engines</strong> tailored to your business case.</p>
+        </div>
+    </div>
+
+    <div class="cta-footer">
+        <h2>Zero Guesswork. Total Customization.</h2>
+        <p style="color: var(--text-dim); font-size: 1.2rem;">Tell us the problem. We will find the data. <br><strong>Trusted by industry veterans for precision-critical workstreams.</strong></p>
+    </div>
+
+    <footer>
+        &copy; 2026 INFRASTRUCTURE DATA LABS | PRIVATE B2B DATA PROVISIONING | LONDON - MILAN
+    </footer>
 </div>
-
-<div class="grid">
-    <div class="card">
-        <span class="badge">Energy Infrastructure</span>
-        <h3>Grid Modernization Data</h3>
-        <p>Specific extraction of tender data, substation assets and expansion project status. Tailored for Power Grid strategy and business development teams.</p>
-    </div>
-
-    <div class="card">
-        <span class="badge">Supply Chain</span>
-        <h3>Industrial Procurement Intelligence</h3>
-        <p>Automated mapping of component lead-times, supplier availability and critical material tracking across fragmented industrial sources.</p>
-    </div>
-
-    <div class="card full-width">
-        <span class="badge">On-Demand Extraction</span>
-        <h3>Bespoke Data Engineering</h3>
-        <p>Your business case defines our scope. Whether it's IT/OT migration mapping, software lifecycle inventories (EOL) or infrastructure technical benchmarks, we build the dataset you are looking for.</p>
-    </div>
-</div>
-
-<footer>
-    <p>&copy; 2026 Infrastructure Data Labs. Optimized for AWS Data Exchange & Private B2B Delivery.</p>
-</footer>
 
 </body>
 </html>
