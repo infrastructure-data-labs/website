@@ -3,220 +3,582 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Infrastructure Data Labs | Industrial Asset Intelligence</title>
-  <meta name="description" content="Technical data intelligence for industrial infrastructure, IT/OT convergence and large-scale transformation." />
+  <title>Infrastructure Data Labs</title>
+  <meta name="description" content="Custom industrial datasets for infrastructure, cloud, ERP, migration, procurement and transformation analysis." />
   <style>
     :root {
-      --bg: #050a14;
-      --bg2: #0a1221;
-      --card: rgba(255,255,255,0.04);
-      --text: #f0f4f8;
-      --muted: rgba(240,244,248,0.7);
-      --accent: #4da6ff;
-      --accent-grid: #52ffc1;
-      --line: rgba(255,255,255,0.1);
-      --max: 1200px;
+      --bg: #07111f;
+      --bg2: #0b1a2e;
+      --card: rgba(255,255,255,0.06);
+      --text: #eef4ff;
+      --muted: rgba(238,244,255,0.72);
+      --muted2: rgba(238,244,255,0.56);
+      --line: rgba(255,255,255,0.12);
+      --accent: #65b7ff;
+      --accent2: #7dffcf;
+      --accent3: #9b8cff;
+      --warn: #ffd166;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --radius: 24px;
+      --radius-sm: 16px;
+      --max: 1180px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: "Inter", -apple-system, system-ui, sans-serif;
-      background: var(--bg);
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      background:
+        radial-gradient(circle at top left, rgba(101,183,255,0.15), transparent 24%),
+        radial-gradient(circle at top right, rgba(125,255,207,0.10), transparent 22%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      min-height: 100vh;
     }
 
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 28px 20px 80px; }
 
-    header {
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 34px;
+      position: sticky;
+      top: 0;
+      padding: 14px 0;
+      backdrop-filter: blur(14px);
+      z-index: 20;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .mark {
+      width: 38px; height: 38px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      box-shadow: 0 8px 30px rgba(101,183,255,.35);
+      display: grid; place-items: center;
+      color: white;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .nav {
+      display: flex; gap: 18px; flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .nav a:hover { color: #fff; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 26px;
+      align-items: stretch;
+      margin-top: 20px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+      backdrop-filter: blur(16px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main { padding: 38px; position: relative; overflow: hidden; }
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -120px auto;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(125,255,207,0.18), transparent 62%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow span {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); display: inline-block;
+      box-shadow: 0 0 0 6px rgba(125,255,207,0.1);
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 4.8vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      margin: 0 0 18px 0;
+      max-width: 13ch;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.7;
+      max-width: 62ch;
+      margin-bottom: 24px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 28px 0 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 650;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      color: #07111f;
+    }
+    .btn.secondary {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.12);
+      color: var(--text);
+    }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .chip {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .hero-side { padding: 24px; display: grid; gap: 14px; }
+    .mini-card {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .mini-card h3 { margin: 0 0 8px; font-size: 1rem; }
+    .mini-card p { margin: 0; color: var(--muted2); line-height: 1.6; font-size: 0.95rem; }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .metric {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .metric .num { display: block; font-size: 1.6rem; font-weight: 800; letter-spacing: -0.04em; }
+    .metric .lbl { color: var(--muted2); font-size: 0.88rem; line-height: 1.4; }
+
+    section { margin-top: 26px; }
+    .section-head {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding: 32px 0;
+      align-items: end;
+      gap: 14px;
+      margin: 24px 0 14px;
     }
-
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.2rem; }
-    .mark { 
-      background: var(--accent); color: var(--bg); 
-      width: 36px; height: 36px; display: grid; place-items: center; 
-      border-radius: 4px; font-weight: 900; 
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      letter-spacing: -0.04em;
     }
+    .section-head p { margin: 0; color: var(--muted); max-width: 66ch; line-height: 1.6; }
 
-    .nav a { color: var(--muted); text-decoration: none; margin-left: 24px; font-size: 0.9rem; transition: 0.2s; }
-    .nav a:hover { color: var(--accent); }
-
-    .hero { padding: 80px 0; border-bottom: 1px solid var(--line); }
-    h1 { 
-      font-size: clamp(2.5rem, 5vw, 4rem); 
-      line-height: 1.1; letter-spacing: -0.03em; 
-      margin-bottom: 24px; max-width: 900px;
-    }
-    .hero p { font-size: 1.25rem; color: var(--muted); max-width: 750px; margin-bottom: 40px; }
-
-    .grid-capabilities {
+    .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      margin-top: 60px;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
     }
-
-    .cap-card {
+    .card {
+      grid-column: span 4;
+      padding: 22px;
+      border-radius: var(--radius-sm);
       background: var(--card);
       border: 1px solid var(--line);
-      padding: 32px;
-      border-radius: 4px;
+      box-shadow: var(--shadow);
     }
-    .cap-card h3 { margin-bottom: 12px; color: var(--accent); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    .cap-card p { font-size: 0.95rem; color: var(--muted); }
-
-    .section-title { padding: 80px 0 32px; }
-    .section-title h2 { font-size: 2rem; letter-spacing: -0.02em; }
-
-    /* Dataset Table Styling */
-    .data-table-container { 
-      overflow-x: auto; 
-      background: var(--card); 
-      border: 1px solid var(--line);
-      border-radius: 4px;
+    .card.wide { grid-column: span 6; }
+    .card.full { grid-column: 1 / -1; }
+    .tag {
+      display: inline-flex;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(101,183,255,0.12);
+      color: #cfe9ff;
+      border: 1px solid rgba(101,183,255,0.18);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
     }
-    table { width: 100%; border-collapse: collapse; min-width: 800px; }
-    th { text-align: left; padding: 16px; font-size: 0.75rem; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); }
-    td { padding: 20px 16px; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
-    .status-badge { 
-      padding: 4px 8px; border-radius: 2px; font-size: 0.7rem; font-weight: 700; 
-      background: rgba(77, 166, 255, 0.1); color: var(--accent); 
-    }
+    .tag.alt { background: rgba(125,255,207,0.10); border-color: rgba(125,255,207,0.16); color: #d9fff1; }
+    .tag.warn { background: rgba(255,209,102,0.12); border-color: rgba(255,209,102,0.18); color: #fff3c7; }
+    .card h3 { margin: 0 0 10px; font-size: 1.25rem; }
+    .card p { margin: 0; color: var(--muted); line-height: 1.7; }
 
-    .methodology {
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      padding: 80px 0;
+      gap: 10px;
+    }
+    .list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .list li::before {
+      content: "•";
+      color: var(--accent2);
+      font-weight: 900;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .signal-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+    }
+    .signal-table th, .signal-table td {
+      text-align: left;
+      padding: 14px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      vertical-align: top;
+      font-size: 0.95rem;
+    }
+    .signal-table th { color: #fff; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(255,255,255,0.04); }
+    .signal-table td { color: var(--muted); }
+    .score {
+      display: inline-flex;
       align-items: center;
-    }
-    .method-text h3 { font-size: 1.75rem; margin-bottom: 20px; }
-    .method-text p { margin-bottom: 16px; color: var(--muted); }
-
-    .experience-box {
-      background: linear-gradient(135deg, rgba(77,166,255,0.05), rgba(82,255,193,0.05));
-      border-left: 4px solid var(--accent);
-      padding: 40px;
-    }
-    .experience-box h4 { margin-bottom: 16px; font-size: 1.2rem; }
-
-    footer { padding: 60px 0; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted2); display: flex; justify-content: space-between; }
-    .btn { 
-      background: var(--accent); color: var(--bg); padding: 12px 24px; 
-      font-weight: 700; border: none; cursor: pointer; text-decoration: none; display: inline-block;
+      justify-content: center;
+      min-width: 42px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 800;
+      color: #07111f;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
     }
 
-    @media (max-width: 768px) {
-      .methodology { grid-template-columns: 1fr; }
-      header { flex-direction: column; gap: 20px; }
+    .process {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .step {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+    }
+    .step .n {
+      display: inline-grid; place-items: center;
+      width: 34px; height: 34px; border-radius: 12px;
+      background: rgba(255,255,255,0.1);
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
+    .step h4 { margin: 0 0 8px; font-size: 1.05rem; }
+    .step p { margin: 0; color: var(--muted); line-height: 1.7; }
+
+    .quote {
+      padding: 24px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(101,183,255,0.14), rgba(125,255,207,0.10));
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .quote p { margin: 0; color: #fff; line-height: 1.75; font-size: 1.05rem; }
+    .quote strong { color: #ffffff; }
+
+    footer {
+      margin-top: 34px;
+      padding: 26px 0 10px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: var(--muted2);
+      font-size: 0.92rem;
+    }
+    footer a { color: #fff; }
+
+    .highlight {
+      color: #fff;
+      background: linear-gradient(135deg, rgba(101,183,255,0.22), rgba(125,255,207,0.16));
+      padding: 0 8px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 940px) {
+      .hero { grid-template-columns: 1fr; }
+      .card, .card.wide { grid-column: 1 / -1; }
+      .process { grid-template-columns: 1fr; }
+      .section-head { flex-direction: column; align-items: start; }
+      .topbar { position: static; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { padding-inline: 14px; }
+      .hero-main, .hero-side, .card, .quote { padding: 18px; }
+      h1 { max-width: 100%; }
+      .metric-grid { grid-template-columns: 1fr; }
+      .nav { display: none; }
     }
   </style>
 </head>
 <body>
-
   <div class="wrap">
-    <header>
+    <header class="topbar">
       <div class="brand">
-        <div class="mark">IDL</div>
-        Infrastructure Data Labs
+        <div class="mark">ID</div>
+        <div>
+          <div>Infrastructure Data Labs</div>
+          <div style="color: var(--muted2); font-size: 0.82rem; margin-top: 2px;">Custom industrial datasets for transformation teams</div>
+        </div>
       </div>
-      <nav class="nav">
-        <a href="#intelligence">Intelligence</a>
-        <a href="#datasets">Datasets</a>
-        <a href="#method">Methodology</a>
-        <a href="mailto:info@infrastructuredatalabs.com">Contact</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#what">What we do</a>
+        <a href="#signals">Examples</a>
+        <a href="#method">Method</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <main>
       <section class="hero">
-        <h1>High-Fidelity Intelligence for Industrial Infrastructure</h1>
-        <p>Mapping complex transformations across IT/OT convergence, smart grid deployment and global cloud-to-edge migrations. We provide the data required to de-risk industrial delivery.</p>
-        <a href="mailto:info@infrastructuredatalabs.com" class="btn">Request Custom Dataset</a>
+        <div class="panel hero-main">
+          <div class="eyebrow"><span></span> Built for industrial and infrastructure teams</div>
+          <h1>Custom datasets for infrastructure, cloud and transformation programs.</h1>
+          <p class="lead">
+            Infrastructure Data Labs builds structured datasets from public and paid sources, including tenders, vendor ecosystems, hiring, migrations, technology stacks and risk signals. The result is clean data that supports planning, delivery, market analysis and commercial strategy.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="mailto:info@infrastructuredatalabs.com">Request a custom dataset</a>
+            <a class="btn secondary" href="#what">See the use cases</a>
+          </div>
+          <div class="chips">
+            <div class="chip">Industrial transformation data</div>
+            <div class="chip">Infrastructure monitoring</div>
+            <div class="chip">Cloud and platform maps</div>
+            <div class="chip">Tender tracking</div>
+            <div class="chip">Risk and expiry signals</div>
+            <div class="chip">Migration datasets</div>
+          </div>
+        </div>
+
+        <aside class="panel hero-side">
+          <div class="mini-card">
+            <h3>Positioning</h3>
+            <p>Not a generic scraping service. A custom data lab for industrial teams that need usable structure and context.</p>
+          </div>
+          <div class="metric-grid">
+            <div class="metric"><span class="num">4</span><span class="lbl">core dataset families</span></div>
+            <div class="metric"><span class="num">1</span><span class="lbl">workflow: source to insight</span></div>
+            <div class="metric"><span class="num">∞</span><span class="lbl">custom use cases and sectors</span></div>
+            <div class="metric"><span class="num">100%</span><span class="lbl">built around your brief</span></div>
+          </div>
+          <div class="mini-card">
+            <h3>Ideal audience</h3>
+            <p>Industrial operators, infrastructure owners, consultancies, system integrators and technology teams at ABB, GE Vernova, Hitachi, Deloitte and Accenture.</p>
+          </div>
+        </aside>
       </section>
 
-      <section id="intelligence" class="grid-capabilities">
-        <div class="cap-card">
-          <h3>Asset Lifecycle & EOL</h3>
-          <p>Monitoring critical infrastructure expiration, vendor support cycles and legacy hardware risks to ensure operational continuity.</p>
+      <section id="what">
+        <div class="section-head">
+          <div>
+            <h2>What the datasets are for</h2>
+            <p>The site should show practical outputs, not abstract claims. Every dataset should help a team plan better, de-risk execution or understand a market faster.</p>
+          </div>
         </div>
-        <div class="cap-card">
-          <h3>Industrial Stack Mapping</h3>
-          <p>Deep-dive analysis of ERP (SAP S/4HANA), cloud environments and Industrial Control Systems (ICS) convergence.</p>
-        </div>
-        <div class="cap-card">
-          <h3>Strategic Workforce Trends</h3>
-          <p>Identifying technological shifts through talent acquisition patterns and specific engineering capability expansion.</p>
-        </div>
-      </section>
-
-      <section id="datasets">
-        <div class="section-title">
-          <h2>Sample Industrial Intelligence</h2>
-        </div>
-        <div class="data-table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Account</th>
-                <th>Context / Trigger</th>
-                <th>Deployment Framework</th>
-                <th>Operational Priority</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Leonardo</strong></td>
-                <td>Polo Strategico Nazionale (PSN)</td>
-                <td>Azure / Oracle (Sovereign Cloud)</td>
-                <td><span class="status-badge">Compliance & Data Sovereignty</span></td>
-              </tr>
-              <tr>
-                <td><strong>Terna</strong></td>
-                <td>2024-2028 Industrial Plan</td>
-                <td>SAP S/4HANA / IoT Edge</td>
-                <td><span class="status-badge">Grid Digitalization</span></td>
-              </tr>
-              <tr>
-                <td><strong>Enel Grids</strong></td>
-                <td>Managed Services Modernization</td>
-                <td>AWS / Edge Computing</td>
-                <td><span class="status-badge">Predictive Maintenance</span></td>
-              </tr>
-              <tr>
-                <td><strong>FS Italiane</strong></td>
-                <td>Digital Infrastructure & IoT</td>
-                <td>Multi-cloud / RFI Infrastructure</td>
-                <td><span class="status-badge">Asset Monitoring</span></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="cards">
+          <article class="card wide">
+            <div class="tag">Market mapping</div>
+            <h3>Track where industrial change is happening</h3>
+            <p>Use structured evidence to follow cloud adoption, infrastructure modernization, procurement activity and ecosystem shifts across accounts and sectors.</p>
+          </article>
+          <article class="card wide">
+            <div class="tag alt">Delivery support</div>
+            <h3>Support migration and transformation planning</h3>
+            <p>Turn risk events, stack dependencies and program signals into a clearer view of timing, priority and execution complexity.</p>
+          </article>
+          <article class="card">
+            <div class="tag warn">Program visibility</div>
+            <h3>See the current stage</h3>
+            <p>Understand whether a program is in planning, procurement, execution or renewal.</p>
+          </article>
+          <article class="card">
+            <div class="tag warn">Stack intelligence</div>
+            <h3>Map the technology context</h3>
+            <p>Combine ERP, cloud, observability and CI/CD signals into one useful view.</p>
+          </article>
+          <article class="card">
+            <div class="tag warn">Risk detection</div>
+            <h3>Spot operational exposure early</h3>
+            <p>Follow expiry dates, vendor changes and migration dependencies before they turn into delays.</p>
+          </article>
         </div>
       </section>
 
-      <section id="method" class="methodology">
-        <div class="method-text">
-          <h3>Precision over generic outreach</h3>
-          <p>We do not track generic "leads". We monitor industrial movements, budget allocations and technical dependencies. Our intelligence is built for managers at firms like ABB, GE Vernova or Deloitte who need a solid business case before engaging.</p>
-          <p>Our analysis leverages both public evidence and deep-integration with specialized data platforms to provide a 360° view of infrastructure accounts.</p>
+      <section id="signals">
+        <div class="section-head">
+          <div>
+            <h2>Example dataset views</h2>
+            <p>This section should show what a client actually receives: a structured view of signal, context and recommended use.</p>
+          </div>
         </div>
-        <div class="experience-box">
-          <h4>Operational Delivery Roots</h4>
-          <p>Infrastructure Data Labs is led by expertise in **Corporate IT Delivery Management** (ABB Zurich), **Infrastructure Business Case Strategy** (Deloitte Zurich) and **Grid OS Plan Delivery** (GE Vernova). We understand the technical constraints because we have managed them.</p>
+
+        <table class="signal-table" aria-label="Example dataset views">
+          <thead>
+            <tr>
+              <th>Entity</th>
+              <th>Dataset view</th>
+              <th>Coverage</th>
+              <th>Score</th>
+              <th>Suggested use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color:#fff;">Leonardo</strong></td>
+              <td>Cloud partnership and sovereign stack</td>
+              <td>Azure / Oracle</td>
+              <td><span class="score">88</span></td>
+              <td>Account mapping</td>
+            </tr>
+            <tr>
+              <td><strong style="color:#fff;">Terna</strong></td>
+              <td>Grid digitalization program</td>
+              <td>Private Cloud / SAP</td>
+              <td><span class="score">86</span></td>
+              <td>Delivery planning</td>
+            </tr>
+            <tr>
+              <td><strong style="color:#fff;">Consip / PA</strong></td>
+              <td>Open tender and framework activity</td>
+              <td>Multi-cloud SaaS</td>
+              <td><span class="score">95</span></td>
+              <td>Commercial targeting</td>
+            </tr>
+            <tr>
+              <td><strong style="color:#fff;">Enel</strong></td>
+              <td>Managed services and modernization</td>
+              <td>AWS</td>
+              <td><span class="score">81</span></td>
+              <td>Program intelligence</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="method">
+        <div class="section-head">
+          <div>
+            <h2>How the work is structured</h2>
+            <p>The site should explain a clear production method: collect signals, organize them, enrich them and deliver a dataset that can be used immediately.</p>
+          </div>
+        </div>
+        <div class="process">
+          <div class="step">
+            <div class="n">1</div>
+            <h4>Collect</h4>
+            <p>Gather news, jobs, procurement, announcements and technology references from the sources you define.</p>
+          </div>
+          <div class="step">
+            <div class="n">2</div>
+            <h4>Structure</h4>
+            <p>Normalize the data into a clean format with fields that are useful for analysis, reporting and outreach.</p>
+          </div>
+          <div class="step">
+            <div class="n">3</div>
+            <h4>Deliver</h4>
+            <p>Package the output as a dataset, dashboard, brief or account view based on the client’s workflow.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="cards">
+          <article class="card full">
+            <div class="tag alt">Why this is credible</div>
+            <h3>Built from real delivery and migration experience</h3>
+            <p>
+              The positioning becomes stronger when it is backed by practical experience in corporate IT, application migration and infrastructure delivery. That makes the offer feel operational and relevant to teams that need data they can trust.
+            </p>
+          </article>
+
+          <article class="card full quote">
+            <p>
+              <strong>Suggested positioning line:</strong> “We build custom datasets that help industrial teams see what is changing, where risk is forming and how to act with better timing.”
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-head">
+          <div>
+            <h2>Contact</h2>
+            <p>Use a direct, simple closing line. It should feel professional, not salesy.</p>
+          </div>
+        </div>
+        <div class="cta">
+          <p>
+            For custom datasets, account views or industrial intelligence projects, write to <a href="mailto:info@infrastructuredatalabs.com"><strong>info@infrastructuredatalabs.com</strong></a>.
+          </p>
         </div>
       </section>
     </main>
 
     <footer>
-      <div>© 2026 Infrastructure Data Labs | Enterprise Industrial Intelligence</div>
-      <div>Italy · Zurich · Global Industrial Support</div>
+      <div>Direct inquiries: <a href="mailto:info@infrastructuredatalabs.com">info@infrastructuredatalabs.com</a></div>
+      <div>Italy · Remote · Industrial data products</div>
+      <div>© 2026 Infrastructure Data Labs</div>
     </footer>
   </div>
-
 </body>
 </html>
