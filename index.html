@@ -248,29 +248,47 @@
     }
     .tag.alt { background: rgba(125,255,207,0.10); border-color: rgba(125,255,207,0.16); color: #d9fff1; }
     .tag.warn { background: rgba(255,209,102,0.12); border-color: rgba(255,209,102,0.18); color: #fff3c7; }
+    .tag.red { background: rgba(255,122,122,0.12); border-color: rgba(255,122,122,0.18); color: #ffd9d9; }
     .card h3 { margin: 0 0 10px; font-size: 1.25rem; }
     .card p { margin: 0; color: var(--muted); line-height: 1.7; }
 
-    .list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    .grid-2 {
       display: grid;
-      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
     }
-    .list li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: var(--muted);
-      line-height: 1.6;
+
+    .fact {
+      padding: 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-sm);
     }
-    .list li::before {
-      content: "•";
-      color: var(--accent2);
-      font-weight: 900;
-      line-height: 1;
-      margin-top: 2px;
+    .fact .topline { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .fact .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--soft);
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+    .fact .badge .live {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+      box-shadow: 0 0 0 7px rgba(125,255,207,0.08);
+      animation: pulse 1.8s infinite;
+    }
+    .fact h3 { margin: 0; }
+    .fact p { margin: 0; color: var(--muted); line-height: 1.68; }
+
+    @keyframes pulse {
+      0% { transform: scale(.9); opacity: .65; }
+      50% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(.9); opacity: .65; }
     }
 
     .signal-table {
@@ -311,274 +329,4 @@
       padding: 18px;
       border-radius: 18px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.05);
-    }
-    .step .n {
-      display: inline-grid; place-items: center;
-      width: 34px; height: 34px; border-radius: 12px;
-      background: rgba(255,255,255,0.1);
-      margin-bottom: 14px;
-      font-weight: 800;
-    }
-    .step h4 { margin: 0 0 8px; font-size: 1.05rem; }
-    .step p { margin: 0; color: var(--muted); line-height: 1.7; }
-
-    .quote {
-      padding: 24px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, rgba(101,183,255,0.14), rgba(125,255,207,0.10));
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-    .quote p { margin: 0; color: #fff; line-height: 1.75; font-size: 1.05rem; }
-    .quote strong { color: #ffffff; }
-
-    footer {
-      margin-top: 34px;
-      padding: 26px 0 10px;
-      border-top: 1px solid rgba(255,255,255,0.10);
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-      color: var(--muted2);
-      font-size: 0.92rem;
-    }
-    footer a { color: #fff; }
-
-    .highlight {
-      color: #fff;
-      background: linear-gradient(135deg, rgba(101,183,255,0.22), rgba(125,255,207,0.16));
-      padding: 0 8px;
-      border-radius: 8px;
-      white-space: nowrap;
-    }
-
-    @media (max-width: 940px) {
-      .hero { grid-template-columns: 1fr; }
-      .card, .card.wide { grid-column: 1 / -1; }
-      .process { grid-template-columns: 1fr; }
-      .section-head { flex-direction: column; align-items: start; }
-      .topbar { position: static; }
-    }
-
-    @media (max-width: 640px) {
-      .wrap { padding-inline: 14px; }
-      .hero-main, .hero-side, .card, .quote { padding: 18px; }
-      h1 { max-width: 100%; }
-      .metric-grid { grid-template-columns: 1fr; }
-      .nav { display: none; }
-    }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <header class="topbar">
-      <div class="brand">
-        <div class="mark">ID</div>
-        <div>
-          <div>Infrastructure Data Labs</div>
-          <div style="color: var(--muted2); font-size: 0.82rem; margin-top: 2px;">Custom industrial datasets for transformation teams</div>
-        </div>
-      </div>
-      <nav class="nav" aria-label="Primary">
-        <a href="#what">What we do</a>
-        <a href="#signals">Examples</a>
-        <a href="#method">Method</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div class="panel hero-main">
-          <div class="eyebrow"><span></span> Built for industrial and infrastructure teams</div>
-          <h1>Custom datasets for infrastructure, cloud and transformation programs.</h1>
-          <p class="lead">
-            Infrastructure Data Labs builds structured datasets from public and paid sources, including tenders, vendor ecosystems, hiring, migrations, technology stacks and risk signals. The result is clean data that supports planning, delivery, market analysis and commercial strategy.
-          </p>
-          <div class="cta-row">
-            <a class="btn primary" href="mailto:info@infrastructuredatalabs.com">Request a custom dataset</a>
-            <a class="btn secondary" href="#what">See the use cases</a>
-          </div>
-          <div class="chips">
-            <div class="chip">Industrial transformation data</div>
-            <div class="chip">Infrastructure monitoring</div>
-            <div class="chip">Cloud and platform maps</div>
-            <div class="chip">Tender tracking</div>
-            <div class="chip">Risk and expiry signals</div>
-            <div class="chip">Migration datasets</div>
-          </div>
-        </div>
-
-        <aside class="panel hero-side">
-          <div class="mini-card">
-            <h3>Positioning</h3>
-            <p>Not a generic scraping service. A custom data lab for industrial teams that need usable structure and context.</p>
-          </div>
-          <div class="metric-grid">
-            <div class="metric"><span class="num">4</span><span class="lbl">core dataset families</span></div>
-            <div class="metric"><span class="num">1</span><span class="lbl">workflow: source to insight</span></div>
-            <div class="metric"><span class="num">∞</span><span class="lbl">custom use cases and sectors</span></div>
-            <div class="metric"><span class="num">100%</span><span class="lbl">built around your brief</span></div>
-          </div>
-          <div class="mini-card">
-            <h3>Ideal audience</h3>
-            <p>Industrial operators, infrastructure owners, consultancies, system integrators and technology teams at ABB, GE Vernova, Hitachi, Deloitte and Accenture.</p>
-          </div>
-        </aside>
-      </section>
-
-      <section id="what">
-        <div class="section-head">
-          <div>
-            <h2>What the datasets are for</h2>
-            <p>The site should show practical outputs, not abstract claims. Every dataset should help a team plan better, de-risk execution or understand a market faster.</p>
-          </div>
-        </div>
-        <div class="cards">
-          <article class="card wide">
-            <div class="tag">Market mapping</div>
-            <h3>Track where industrial change is happening</h3>
-            <p>Use structured evidence to follow cloud adoption, infrastructure modernization, procurement activity and ecosystem shifts across accounts and sectors.</p>
-          </article>
-          <article class="card wide">
-            <div class="tag alt">Delivery support</div>
-            <h3>Support migration and transformation planning</h3>
-            <p>Turn risk events, stack dependencies and program signals into a clearer view of timing, priority and execution complexity.</p>
-          </article>
-          <article class="card">
-            <div class="tag warn">Program visibility</div>
-            <h3>See the current stage</h3>
-            <p>Understand whether a program is in planning, procurement, execution or renewal.</p>
-          </article>
-          <article class="card">
-            <div class="tag warn">Stack intelligence</div>
-            <h3>Map the technology context</h3>
-            <p>Combine ERP, cloud, observability and CI/CD signals into one useful view.</p>
-          </article>
-          <article class="card">
-            <div class="tag warn">Risk detection</div>
-            <h3>Spot operational exposure early</h3>
-            <p>Follow expiry dates, vendor changes and migration dependencies before they turn into delays.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="signals">
-        <div class="section-head">
-          <div>
-            <h2>Example dataset views</h2>
-            <p>This section should show what a client actually receives: a structured view of signal, context and recommended use.</p>
-          </div>
-        </div>
-
-        <table class="signal-table" aria-label="Example dataset views">
-          <thead>
-            <tr>
-              <th>Entity</th>
-              <th>Dataset view</th>
-              <th>Coverage</th>
-              <th>Score</th>
-              <th>Suggested use</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong style="color:#fff;">Leonardo</strong></td>
-              <td>Cloud partnership and sovereign stack</td>
-              <td>Azure / Oracle</td>
-              <td><span class="score">88</span></td>
-              <td>Account mapping</td>
-            </tr>
-            <tr>
-              <td><strong style="color:#fff;">Terna</strong></td>
-              <td>Grid digitalization program</td>
-              <td>Private Cloud / SAP</td>
-              <td><span class="score">86</span></td>
-              <td>Delivery planning</td>
-            </tr>
-            <tr>
-              <td><strong style="color:#fff;">Consip / PA</strong></td>
-              <td>Open tender and framework activity</td>
-              <td>Multi-cloud SaaS</td>
-              <td><span class="score">95</span></td>
-              <td>Commercial targeting</td>
-            </tr>
-            <tr>
-              <td><strong style="color:#fff;">Enel</strong></td>
-              <td>Managed services and modernization</td>
-              <td>AWS</td>
-              <td><span class="score">81</span></td>
-              <td>Program intelligence</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section id="method">
-        <div class="section-head">
-          <div>
-            <h2>How the work is structured</h2>
-            <p>The site should explain a clear production method: collect signals, organize them, enrich them and deliver a dataset that can be used immediately.</p>
-          </div>
-        </div>
-        <div class="process">
-          <div class="step">
-            <div class="n">1</div>
-            <h4>Collect</h4>
-            <p>Gather news, jobs, procurement, announcements and technology references from the sources you define.</p>
-          </div>
-          <div class="step">
-            <div class="n">2</div>
-            <h4>Structure</h4>
-            <p>Normalize the data into a clean format with fields that are useful for analysis, reporting and outreach.</p>
-          </div>
-          <div class="step">
-            <div class="n">3</div>
-            <h4>Deliver</h4>
-            <p>Package the output as a dataset, dashboard, brief or account view based on the client’s workflow.</p>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="cards">
-          <article class="card full">
-            <div class="tag alt">Why this is credible</div>
-            <h3>Built from real delivery and migration experience</h3>
-            <p>
-              The positioning becomes stronger when it is backed by practical experience in corporate IT, application migration and infrastructure delivery. That makes the offer feel operational and relevant to teams that need data they can trust.
-            </p>
-          </article>
-
-          <article class="card full quote">
-            <p>
-              <strong>Suggested positioning line:</strong> “We build custom datasets that help industrial teams see what is changing, where risk is forming and how to act with better timing.”
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section id="contact">
-        <div class="section-head">
-          <div>
-            <h2>Contact</h2>
-            <p>Use a direct, simple closing line. It should feel professional, not salesy.</p>
-          </div>
-        </div>
-        <div class="cta">
-          <p>
-            For custom datasets, account views or industrial intelligence projects, write to <a href="mailto:info@infrastructuredatalabs.com"><strong>info@infrastructuredatalabs.com</strong></a>.
-          </p>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div>Direct inquiries: <a href="mailto:info@infrastructuredatalabs.com">info@infrastructuredatalabs.com</a></div>
-      <div>Italy · Remote · Industrial data products</div>
-      <div>© 2026 Infrastructure Data Labs</div>
-    </footer>
-  </div>
-</body>
-</html>
+      backg
