@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Infrastructure Data Labs helps enterprise teams turn market signals into board-ready business cases and delivery-safe execution plans." />
   <title>Infrastructure Data Labs</title>
-  <meta name="description" content="B2B data intelligence for infrastructure, cloud, ERP, and industrial transformation teams." />
   <style>
     :root {
-      --bg: #07111f;
-      --bg2: #0b1a2e;
-      --card: rgba(255,255,255,0.06);
-      --card-strong: rgba(255,255,255,0.1);
-      --text: #eef4ff;
-      --muted: rgba(238,244,255,0.72);
-      --muted2: rgba(238,244,255,0.56);
+      --bg: #06101d;
+      --bg-2: #0b1a2d;
+      --panel: rgba(255,255,255,0.06);
+      --panel-strong: rgba(255,255,255,0.09);
       --line: rgba(255,255,255,0.12);
-      --accent: #65b7ff;
-      --accent2: #7dffcf;
-      --accent3: #9b8cff;
-      --warn: #ffd166;
-      --danger: #ff7a7a;
-      --shadow: 0 20px 60px rgba(0,0,0,0.35);
-      --radius: 24px;
-      --radius-sm: 16px;
-      --max: 1180px;
+      --text: #eef5ff;
+      --muted: rgba(238,245,255,0.72);
+      --soft: rgba(238,245,255,0.56);
+      --blue: #0070f3;
+      --cyan: #57d6ff;
+      --green: #7dffcf;
+      --gold: #ffd166;
+      --red: #ff7a7a;
+      --shadow: 0 24px 70px rgba(0,0,0,.35);
+      --radius: 26px;
+      --radius-sm: 18px;
+      --max: 1200px;
     }
 
     * { box-sizing: border-box; }
@@ -31,78 +31,74 @@
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(101,183,255,0.15), transparent 24%),
-        radial-gradient(circle at top right, rgba(125,255,207,0.10), transparent 22%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
+        radial-gradient(circle at 15% 10%, rgba(0,112,243,.18), transparent 25%),
+        radial-gradient(circle at 85% 15%, rgba(125,255,207,.13), transparent 20%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+      color: var(--text);
       min-height: 100vh;
     }
 
     a { color: inherit; text-decoration: none; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 28px 20px 80px; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 24px 20px 72px; }
 
     .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 34px;
-      position: sticky;
-      top: 0;
       padding: 14px 0;
-      backdrop-filter: blur(14px);
-      z-index: 20;
+      backdrop-filter: blur(16px);
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
+    .brand { display: flex; align-items: center; gap: 12px; }
     .mark {
-      width: 38px; height: 38px; border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent3));
-      box-shadow: 0 8px 30px rgba(101,183,255,.35);
+      width: 42px; height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      box-shadow: 0 12px 30px rgba(0,112,243,.28);
       display: grid; place-items: center;
-      color: white;
-      font-size: 18px;
-      font-weight: 800;
+      color: white; font-weight: 800; letter-spacing: .04em;
     }
+    .brand h1 { margin: 0; font-size: 1rem; letter-spacing: .01em; }
+    .brand p { margin: 2px 0 0; color: var(--soft); font-size: .82rem; }
 
-    .nav {
-      display: flex; gap: 18px; flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+    .nav { display: flex; gap: 18px; flex-wrap: wrap; color: var(--soft); font-size: .95rem; }
     .nav a:hover { color: #fff; }
 
     .hero {
+      margin-top: 18px;
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 26px;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 18px;
       align-items: stretch;
-      margin-top: 20px;
     }
 
     .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
       border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
-      backdrop-filter: blur(16px);
-      border-radius: var(--radius);
       box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      backdrop-filter: blur(18px);
     }
 
-    .hero-main { padding: 38px; position: relative; overflow: hidden; }
-    .hero-main::after {
+    .hero-main {
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-main:after {
       content: "";
       position: absolute;
-      inset: auto -80px -120px auto;
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(125,255,207,0.18), transparent 62%);
+      right: -120px;
+      bottom: -130px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(125,255,207,.16), transparent 62%);
       pointer-events: none;
     }
 
@@ -112,41 +108,41 @@
       gap: 10px;
       padding: 9px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: .9rem;
       margin-bottom: 18px;
     }
-
-    .eyebrow span {
-      width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); display: inline-block;
-      box-shadow: 0 0 0 6px rgba(125,255,207,0.1);
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 7px rgba(125,255,207,.1);
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(.9); opacity: .65; }
+      50% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(.9); opacity: .65; }
     }
 
-    h1 {
-      font-size: clamp(2.5rem, 4.8vw, 5rem);
-      line-height: 0.98;
-      letter-spacing: -0.05em;
-      margin: 0 0 18px 0;
+    h2.hero-title {
+      margin: 0 0 16px;
+      font-size: clamp(2.6rem, 5vw, 5.2rem);
+      line-height: .95;
+      letter-spacing: -.055em;
       max-width: 12ch;
     }
 
     .lead {
+      margin: 0;
+      max-width: 66ch;
       color: var(--muted);
       font-size: 1.08rem;
-      line-height: 1.7;
-      max-width: 60ch;
-      margin-bottom: 24px;
+      line-height: 1.72;
     }
 
-    .cta-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 28px 0 10px;
-    }
-
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
     .btn {
       display: inline-flex;
       align-items: center;
@@ -154,71 +150,58 @@
       gap: 10px;
       padding: 14px 18px;
       border-radius: 14px;
+      font-weight: 700;
       border: 1px solid transparent;
-      font-weight: 650;
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-      cursor: pointer;
-      white-space: nowrap;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
     }
     .btn:hover { transform: translateY(-1px); }
-    .btn.primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent3));
-      color: #07111f;
-    }
-    .btn.secondary {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.12);
-      color: var(--text);
-    }
+    .btn.primary { background: linear-gradient(135deg, var(--blue), var(--cyan)); color: #04101f; }
+    .btn.secondary { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.12); color: var(--text); }
 
     .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
     .chip {
       padding: 9px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--muted);
-      font-size: 0.88rem;
+      font-size: .86rem;
+      color: var(--soft);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
     }
 
-    .hero-side { padding: 24px; display: grid; gap: 14px; }
-    .mini-card {
-      padding: 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .mini-card h3 { margin: 0 0 8px; font-size: 1rem; }
-    .mini-card p { margin: 0; color: var(--muted2); line-height: 1.6; font-size: 0.95rem; }
-    .metric-grid {
+    .hero-side {
+      padding: 24px;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
-      margin-top: 4px;
     }
-    .metric {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+    .mini-card, .metric, .step, .card, .quote, .fact {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius-sm);
     }
-    .metric .num { display: block; font-size: 1.6rem; font-weight: 800; letter-spacing: -0.04em; }
-    .metric .lbl { color: var(--muted2); font-size: 0.88rem; line-height: 1.4; }
+
+    .mini-card { padding: 18px; }
+    .mini-card h3, .fact h3, .step h4, .card h3 { margin: 0 0 8px; }
+    .mini-card p, .fact p, .step p, .card p { margin: 0; color: var(--muted); line-height: 1.68; }
+
+    .metric-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .metric { padding: 16px; }
+    .metric .num { display: block; font-size: 1.55rem; font-weight: 800; letter-spacing: -.04em; }
+    .metric .lbl { display: block; margin-top: 4px; color: var(--soft); font-size: .86rem; line-height: 1.4; }
 
     section { margin-top: 26px; }
     .section-head {
       display: flex;
       justify-content: space-between;
-      align-items: end;
       gap: 14px;
-      margin: 24px 0 14px;
+      align-items: end;
+      margin: 26px 0 14px;
     }
     .section-head h2 {
       margin: 0;
       font-size: clamp(1.5rem, 3vw, 2.2rem);
-      letter-spacing: -0.04em;
+      letter-spacing: -.04em;
     }
-    .section-head p { margin: 0; color: var(--muted); max-width: 64ch; line-height: 1.6; }
+    .section-head p { margin: 0; color: var(--muted); max-width: 70ch; line-height: 1.65; }
 
     .cards {
       display: grid;
@@ -228,9 +211,6 @@
     .card {
       grid-column: span 4;
       padding: 22px;
-      border-radius: var(--radius-sm);
-      background: var(--card);
-      border: 1px solid var(--line);
       box-shadow: var(--shadow);
     }
     .card.wide { grid-column: span 6; }
@@ -239,40 +219,43 @@
       display: inline-flex;
       padding: 7px 10px;
       border-radius: 999px;
-      background: rgba(101,183,255,0.12);
-      color: #cfe9ff;
-      border: 1px solid rgba(101,183,255,0.18);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
+      background: rgba(0,112,243,.14);
+      border: 1px solid rgba(0,112,243,.22);
+      color: #d7ebff;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .08em;
       text-transform: uppercase;
       margin-bottom: 14px;
     }
-    .tag.alt { background: rgba(125,255,207,0.10); border-color: rgba(125,255,207,0.16); color: #d9fff1; }
-    .tag.warn { background: rgba(255,209,102,0.12); border-color: rgba(255,209,102,0.18); color: #fff3c7; }
-    .card h3 { margin: 0 0 10px; font-size: 1.25rem; }
-    .card p { margin: 0; color: var(--muted); line-height: 1.7; }
+    .tag.alt { background: rgba(125,255,207,.11); border-color: rgba(125,255,207,.18); color: #e4fff6; }
+    .tag.warn { background: rgba(255,209,102,.11); border-color: rgba(255,209,102,.18); color: #fff3cc; }
+    .tag.red { background: rgba(255,122,122,.12); border-color: rgba(255,122,122,.18); color: #ffd9d9; }
 
-    .list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    .grid-2 {
       display: grid;
-      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
     }
-    .list li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: var(--muted);
-      line-height: 1.6;
+
+    .fact { padding: 20px; }
+    .fact .topline { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .fact .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      color: var(--soft);
+      font-size: .78rem;
+      white-space: nowrap;
     }
-    .list li::before {
-      content: "•";
-      color: var(--accent2);
-      font-weight: 900;
-      line-height: 1;
-      margin-top: 2px;
+    .fact .badge .live {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+      box-shadow: 0 0 0 7px rgba(125,255,207,.08);
+      animation: pulse 1.8s infinite;
     }
 
     .signal-table {
@@ -280,28 +263,34 @@
       border-collapse: collapse;
       overflow: hidden;
       border-radius: 18px;
-      background: rgba(255,255,255,0.04);
       border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
     }
     .signal-table th, .signal-table td {
+      padding: 14px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
       text-align: left;
-      padding: 14px 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
       vertical-align: top;
-      font-size: 0.95rem;
+      font-size: .95rem;
     }
-    .signal-table th { color: #fff; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(255,255,255,0.04); }
+    .signal-table th {
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .78rem;
+      color: #fff;
+      background: rgba(255,255,255,.04);
+    }
     .signal-table td { color: var(--muted); }
     .score {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 42px;
       padding: 6px 10px;
       border-radius: 999px;
+      min-width: 40px;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      color: #04101f;
       font-weight: 800;
-      color: #07111f;
-      background: linear-gradient(135deg, var(--accent2), var(--accent));
     }
 
     .process {
@@ -309,64 +298,66 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
-    .step {
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.05);
-    }
+    .step { padding: 18px; }
     .step .n {
-      display: inline-grid; place-items: center;
-      width: 34px; height: 34px; border-radius: 12px;
-      background: rgba(255,255,255,0.1);
+      width: 34px; height: 34px;
+      display: grid; place-items: center;
+      border-radius: 12px;
       margin-bottom: 14px;
       font-weight: 800;
+      background: rgba(255,255,255,.08);
     }
-    .step h4 { margin: 0 0 8px; font-size: 1.05rem; }
-    .step p { margin: 0; color: var(--muted); line-height: 1.7; }
 
     .quote {
       padding: 24px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, rgba(101,183,255,0.14), rgba(125,255,207,0.10));
-      border: 1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(135deg, rgba(0,112,243,.16), rgba(125,255,207,.12));
     }
-    .quote p { margin: 0; color: #fff; line-height: 1.75; font-size: 1.05rem; }
-    .quote strong { color: #ffffff; }
+    .quote p { margin: 0; color: #fff; line-height: 1.72; font-size: 1.04rem; }
+
+    .cta {
+      padding: 26px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .cta h2 { margin: 0 0 10px; font-size: clamp(1.5rem, 2.5vw, 2rem); }
+    .cta p { margin: 0; color: var(--muted); line-height: 1.68; max-width: 68ch; }
 
     footer {
-      margin-top: 34px;
-      padding: 26px 0 10px;
-      border-top: 1px solid rgba(255,255,255,0.10);
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.1);
       display: flex;
       justify-content: space-between;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
-      color: var(--muted2);
-      font-size: 0.92rem;
+      color: var(--soft);
+      font-size: .92rem;
     }
-    footer a { color: #fff; }
 
     .highlight {
       color: #fff;
-      background: linear-gradient(135deg, rgba(101,183,255,0.22), rgba(125,255,207,0.16));
+      background: linear-gradient(135deg, rgba(0,112,243,.22), rgba(125,255,207,.16));
       padding: 0 8px;
       border-radius: 8px;
       white-space: nowrap;
     }
 
-    @media (max-width: 940px) {
+    .small-note { color: var(--soft); font-size: .88rem; line-height: 1.6; margin-top: 12px; }
+
+    @media (max-width: 960px) {
       .hero { grid-template-columns: 1fr; }
       .card, .card.wide { grid-column: 1 / -1; }
-      .process { grid-template-columns: 1fr; }
+      .grid-2, .process { grid-template-columns: 1fr; }
       .section-head { flex-direction: column; align-items: start; }
       .topbar { position: static; }
     }
 
     @media (max-width: 640px) {
       .wrap { padding-inline: 14px; }
-      .hero-main, .hero-side, .card, .quote { padding: 18px; }
-      h1 { max-width: 100%; }
+      .hero-main, .hero-side, .card, .fact, .quote, .cta { padding: 18px; }
+      h2.hero-title { max-width: 100%; }
       .metric-grid { grid-template-columns: 1fr; }
       .nav { display: none; }
     }
@@ -378,12 +369,13 @@
       <div class="brand">
         <div class="mark">ID</div>
         <div>
-          <div>Infrastructure Data Labs</div>
-          <div style="color: var(--muted2); font-size: 0.82rem; margin-top: 2px;">B2B data intelligence for industrial transformation</div>
+          <h1>Infrastructure Data Labs</h1>
+          <p>Pre-Sales Intelligence & Delivery De-risking</p>
         </div>
       </div>
       <nav class="nav" aria-label="Primary">
-        <a href="#what">What we do</a>
+        <a href="#value">Value</a>
+        <a href="#modules">Modules</a>
         <a href="#signals">Signals</a>
         <a href="#method">Method</a>
         <a href="#contact">Contact</a>
@@ -393,74 +385,99 @@
     <main>
       <section class="hero">
         <div class="panel hero-main">
-          <div class="eyebrow"><span></span> Built for enterprise buyers, not generic lead gen</div>
-          <h1>Data intelligence that helps you sell into real infrastructure demand.</h1>
+          <div class="eyebrow"><span class="dot"></span> Built for enterprise buyers, not generic lead gen</div>
+          <h2 class="hero-title">Turning infrastructure signals into tier-1 business cases.</h2>
           <p class="lead">
-            Infrastructure Data Labs turns fragmented public evidence, hiring signals, vendor ecosystems, tender data, and technology stack clues into sharp commercial opportunities. The goal is simple: help managers understand where a buyer is already moving, what problem they truly have, and how to position a service that feels tailored—not generic.
+            Bridge the gap between raw market data and board-ready migration strategies. Infrastructure Data Labs helps industrial tech leaders understand where budget is moving, where execution risk is hiding, and how to approach the account with a credible, delivery-safe proposal.
           </p>
           <div class="cta-row">
-            <a class="btn primary" href="mailto:info@infrastructuredatalabs.com">Start a conversation</a>
-            <a class="btn secondary" href="#what">See use cases</a>
+            <a class="btn primary" href="mailto:info@infrastructuredatalabs.com">Request a custom account map</a>
+            <a class="btn secondary" href="#modules">See the intelligence modules</a>
           </div>
           <div class="chips">
             <div class="chip">Cloud migration intelligence</div>
+            <div class="chip">Vendor lock-in scoring</div>
+            <div class="chip">Tender anticipation</div>
+            <div class="chip">Hiring signal detection</div>
+            <div class="chip">EOL / expiry risk</div>
             <div class="chip">IT / OT modernization</div>
-            <div class="chip">Vendor lock-in mapping</div>
-            <div class="chip">Tender and budget signals</div>
-            <div class="chip">EOL / risk monitoring</div>
           </div>
+          <p class="small-note">
+            The site should feel like a <span class="highlight">strategy instrument</span>, not a data warehouse.
+          </p>
         </div>
 
         <aside class="panel hero-side">
           <div class="mini-card">
             <h3>Positioning</h3>
-            <p>Not a dataset shop. A commercial intelligence partner for complex enterprise selling.</p>
+            <p>We do not sell datasets. We translate fragmented evidence into decisions managers can defend internally.</p>
           </div>
           <div class="metric-grid">
-            <div class="metric"><span class="num">4</span><span class="lbl">signal families blended into one view</span></div>
-            <div class="metric"><span class="num">1</span><span class="lbl">answer: where to engage next</span></div>
-            <div class="metric"><span class="num">∞</span><span class="lbl">custom buyer scenarios and verticals</span></div>
-            <div class="metric"><span class="num">100%</span><span class="lbl">tailored to the business case</span></div>
+            <div class="metric"><span class="num">4</span><span class="lbl">signal families shown clearly</span></div>
+            <div class="metric"><span class="num">1</span><span class="lbl">commercial outcome: better timing</span></div>
+            <div class="metric"><span class="num">∞</span><span class="lbl">custom account scenarios</span></div>
+            <div class="metric"><span class="num">100%</span><span class="lbl">built around the buyer’s use case</span></div>
           </div>
           <div class="mini-card">
-            <h3>Ideal audience</h3>
-            <p>VPs, transformation leaders, CIO orgs, delivery directors, partners, and consultants at ABB, GE Vernova, Hitachi, Deloitte, Accenture, and similar accounts.</p>
+            <h3>Credibility</h3>
+            <p>Experience across ABB Zurich, Deloitte Zurich infrastructure business-case discussions, and GE Vernova Germany grid delivery conversations anchors the value in real delivery reality.</p>
           </div>
         </aside>
       </section>
 
-      <section id="what">
+      <section id="value">
         <div class="section-head">
           <div>
-            <h2>What managers actually buy</h2>
-            <p>Sell services that match the buyer’s current program stage, stack, and urgency. That is what makes outreach relevant.</p>
+            <h2>What the buyer really needs</h2>
+            <p>Senior managers do not need more files. They need clarity on where to spend budget, how to reduce migration risk, and which accounts are ready for a relevant conversation.</p>
           </div>
         </div>
+        <div class="grid-2">
+          <div class="fact panel">
+            <div class="topline">
+              <h3>Not a database</h3>
+              <div class="badge"><span class="live"></span> Live signal view</div>
+            </div>
+            <p>More accurate than “they receive hundreds of Excel files” is this: enterprise teams are flooded with reports, dashboards, and fragmented inputs, but very few of those inputs become an actionable decision.</p>
+          </div>
+          <div class="fact panel">
+            <div class="topline">
+              <h3>Decision clarity</h3>
+              <div class="badge"><span class="live"></span> Board-ready</div>
+            </div>
+            <p>The real pain is not lack of data. It is lack of interpretation, prioritization, and timing. That is where your delivery and migration background becomes a credibility advantage.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="modules">
+        <div class="section-head">
+          <div>
+            <h2>Intelligence modules</h2>
+            <p>These are the four modules that should be front and center on the site. They map directly to the needs of CIOs, infrastructure directors, strategy teams, and pursuit managers.</p>
+          </div>
+        </div>
+
         <div class="cards">
           <article class="card wide">
-            <div class="tag">Commercial Intelligence</div>
-            <h3>Find the real trigger before the RFP</h3>
-            <p>We identify budget approvals, platform shifts, partnership announcements, hiring, migration language, and risk events that indicate a real need. That lets you approach with a proposal aligned to their current agenda.</p>
+            <div class="tag red">Vendor EOL & Risk</div>
+            <h3>Prevent firefighting before expiry becomes a crisis.</h3>
+            <p>Detect expired certificates, support renewals, and identify workloads that need immediate action. This is the fastest way to sell risk reduction and operational continuity.</p>
           </article>
           <article class="card wide">
-            <div class="tag alt">Delivery-Led Value</div>
-            <h3>Translate signals into a business case</h3>
-            <p>Your background matters here: delivery manager, application migration, and corporate infrastructure experience are best used when the message connects technical change to business outcomes such as timeline risk, governance, and operational continuity.</p>
+            <div class="tag">Cloud Lock-in Scoring</div>
+            <h3>See where the client is structurally stuck.</h3>
+            <p>Map cloud dependence across platform, observability, ERP, and CI/CD choices. This creates a compelling opening for governance, optimization, or migration advisory services.</p>
           </article>
-          <article class="card">
-            <div class="tag warn">Buyer pain</div>
-            <h3>Platform complexity</h3>
-            <p>Cloud, ERP, observability, CI/CD, and IT/OT stacks often create hidden lock-in and delivery friction.</p>
+          <article class="card wide">
+            <div class="tag alt">Tender Anticipation</div>
+            <h3>Move from RFP responder to RFP shaper.</h3>
+            <p>Track pre-procurement, budget approval, framework activation, and vendor ecosystem changes. That allows teams to enter earlier and position the offer before the tender is fully locked.</p>
           </article>
-          <article class="card">
-            <div class="tag warn">Buyer pain</div>
-            <h3>Migration uncertainty</h3>
-            <p>Teams need support to move workloads safely, prioritize the roadmap, and de-risk dependencies.</p>
-          </article>
-          <article class="card">
-            <div class="tag warn">Buyer pain</div>
-            <h3>Procurement timing</h3>
-            <p>Commercial opportunities appear earlier than the tender itself, especially in planning and pre-procurement phases.</p>
+          <article class="card wide">
+            <div class="tag warn">Tech-Stack Hiring Signals</div>
+            <h3>Know the buying intent before the buy.</h3>
+            <p>Hiring for Azure architects, platform engineers, migration leads, or observability specialists often appears before platform spend lands. That is a strong signal for pre-sales and consulting outreach.</p>
           </article>
         </div>
       </section>
@@ -468,25 +485,25 @@
       <section id="signals">
         <div class="section-head">
           <div>
-            <h2>Example signals the site can showcase</h2>
-            <p>This is the kind of evidence that helps a manager instantly understand who to target, what to pitch, and how urgent the window is.</p>
+            <h2>Example signal table</h2>
+            <p>The UI should let a manager scan the opportunity in seconds: what happened, what it means, and what to do next.</p>
           </div>
         </div>
 
-        <table class="signal-table" aria-label="Example signals">
+        <table class="signal-table" aria-label="Example signals table">
           <thead>
             <tr>
               <th>Company</th>
-              <th>Signal</th>
-              <th>Platform</th>
+              <th>Signal type</th>
+              <th>Target platform</th>
               <th>Score</th>
-              <th>Action</th>
+              <th>Recommended action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><strong style="color:#fff;">Leonardo</strong></td>
-              <td>Cloud / sovereign infra partnership</td>
+              <td>Partnership / sovereign cloud</td>
               <td>Azure / Oracle</td>
               <td><span class="score">88</span></td>
               <td>Critical engage</td>
@@ -494,20 +511,20 @@
             <tr>
               <td><strong style="color:#fff;">Terna</strong></td>
               <td>Grid digitalization program</td>
-              <td>Private Cloud / SAP</td>
+              <td>Private cloud / SAP</td>
               <td><span class="score">86</span></td>
               <td>Cloud governance</td>
             </tr>
             <tr>
               <td><strong style="color:#fff;">Consip / PA</strong></td>
-              <td>Open tender for SaaS / ITSM</td>
-              <td>Multi-cloud</td>
+              <td>Open tender</td>
+              <td>Multi-cloud SaaS</td>
               <td><span class="score">95</span></td>
-              <td>Join consortium</td>
+              <td>Join consortium immediately</td>
             </tr>
             <tr>
               <td><strong style="color:#fff;">Enel</strong></td>
-              <td>Managed services and modernization</td>
+              <td>Managed services modernization</td>
               <td>AWS</td>
               <td><span class="score">81</span></td>
               <td>Strategic engage</td>
@@ -519,25 +536,26 @@
       <section id="method">
         <div class="section-head">
           <div>
-            <h2>How the offer should feel</h2>
-            <p>The strongest version of this site does not sound like “we sell data”. It sounds like “we reduce ambiguity in enterprise buying.”</p>
+            <h2>How the work feels to the buyer</h2>
+            <p>For this audience, the site must communicate a disciplined method: capture signal, interpret signal, package a decision, and reduce execution risk.</p>
           </div>
         </div>
+
         <div class="process">
           <div class="step">
             <div class="n">1</div>
-            <h4>Signal capture</h4>
-            <p>Pull public evidence from news, hiring, procurement, announcements, and technology stack references.</p>
+            <h4>Capture</h4>
+            <p>Aggregate news, jobs, procurement, partnerships, and stack references into one consistent evidence base.</p>
           </div>
           <div class="step">
             <div class="n">2</div>
-            <h4>Commercial interpretation</h4>
-            <p>Convert raw signals into account priority, likely pain points, buyer stage, and recommended action.</p>
+            <h4>Interpret</h4>
+            <p>Turn signal into account priority, likely pain point, and commercial timing. That is where the intelligence becomes useful.</p>
           </div>
           <div class="step">
             <div class="n">3</div>
-            <h4>Buyer-specific packaging</h4>
-            <p>Deliver a dataset, dashboard, brief, or account list designed around the buyer’s exact consulting or sales motion.</p>
+            <h4>Package</h4>
+            <p>Deliver a custom account map, board-ready brief, or service hypothesis tailored to the buyer’s sector and delivery stage.</p>
           </div>
         </div>
       </section>
@@ -545,35 +563,39 @@
       <section>
         <div class="cards">
           <article class="card full">
-            <div class="tag alt">Why this is credible</div>
-            <h3>Experience that speaks the buyer’s language</h3>
+            <div class="tag alt">Why the message is credible</div>
+            <h3>Built by someone who understands execution, not just sourcing.</h3>
             <p>
-              Your positioning becomes stronger because it is grounded in real delivery and migration experience: corporate IT delivery manager work at ABB Zurich, positive interview momentum with Deloitte Zurich on infrastructure business cases, and positive discussions with GE Vernova in Germany around grid OS plan delivery management. That background makes the offer feel operational, not theoretical.
+              The strongest version of this site should lean on real operating experience. That includes corporate IT delivery work at ABB Zurich, infrastructure business-case discussions with Deloitte Zurich, and grid OS / delivery conversations with GE Vernova Germany. The point is not name-dropping; the point is signaling that the offer comes from someone who understands how these programs actually get approved, sold, and delivered.
             </p>
           </article>
 
           <article class="card full quote">
             <p>
-              <strong>Suggested positioning line:</strong> “We help enterprise teams identify where infrastructure, cloud, and platform change is already happening, then turn that signal into an account plan, a service hypothesis, and a compelling business case.”
+              “We do not add more data to your pipeline. We remove ambiguity from your decisions.”
             </p>
           </article>
         </div>
       </section>
 
       <section id="contact">
-        <div class="section-head">
-          <div>
-            <h2>Contact</h2>
-            <p>Make the next step feel simple and premium. One clear email address is enough for now.</p>
+        <div class="cta">
+          <h2>Request a custom account map</h2>
+          <p>
+            If the target is a manager at ABB, GE Vernova, Hitachi, Deloitte, or Accenture, the offer should feel specific: what signal was found, why it matters, and what service or conversation should happen next.
+          </p>
+          <div class="cta-row" style="margin-top:18px;">
+            <a class="btn primary" href="mailto:info@infrastructuredatalabs.com">Email info@infrastructuredatalabs.com</a>
+            <a class="btn secondary" href="#value">Review the positioning</a>
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <div>Direct inquiries: <a href="mailto:info@infrastructuredatalabs.com">info@infrastructuredatalabs.com</a></div>
-      <div>Italy · Remote · Enterprise data intelligence</div>
-      <div>© 2026 Infrastructure Data Labs</div>
+      <div>Infrastructure Data Labs</div>
+      <div>Italy · Remote · Enterprise intelligence for infrastructure teams</div>
+      <div><a href="mailto:info@infrastructuredatalabs.com">info@infrastructuredatalabs.com</a></div>
     </footer>
   </div>
 </body>
