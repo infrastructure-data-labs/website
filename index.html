@@ -33,7 +33,6 @@
 
     .wrap { max-width: var(--max); margin: 0 auto; padding: 40px 20px; }
 
-    /* Header */
     header {
       display: flex;
       justify-content: space-between;
@@ -46,9 +45,9 @@
     .brand { display: flex; align-items: center; gap: 14px; font-weight: 700; letter-spacing: -0.02em; font-size: 1.2rem; }
     .mark { width: 32px; height: 32px; background: var(--accent); border-radius: 6px; display: grid; place-items: center; color: var(--bg); font-weight: 900; }
     .nav { display: flex; gap: 32px; font-size: 0.9rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .nav a { text-decoration: none; color: inherit; transition: 0.2s; }
     .nav a:hover { color: var(--accent); }
 
-    /* Hero Section */
     .hero { margin-bottom: 100px; }
     .hero h1 {
       font-size: clamp(2.5rem, 5vw, 4rem);
@@ -65,7 +64,6 @@
       margin-bottom: 40px;
     }
 
-    /* Intelligence Grid */
     .section-label {
       font-size: 0.75rem;
       text-transform: uppercase;
@@ -91,7 +89,8 @@
     .intel-item h3 { font-size: 1.1rem; margin: 0 0 12px 0; font-weight: 600; }
     .intel-item p { font-size: 0.95rem; color: var(--muted); margin: 0; }
 
-    /* Data Table / Dashboard Style */
+    /* DATA LIBRARY STYLES */
+    .data-library { padding: 80px 0; }
     .table-container {
       background: var(--card);
       border: 1px solid var(--line);
@@ -99,23 +98,27 @@
       overflow-x: auto;
       margin-bottom: 60px;
     }
-    .table-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      padding: 20px 24px 0;
-      color: var(--text);
+    .table-container h3 {
+      font-size: 0.9rem;
+      padding: 20px 24px;
+      margin: 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    table { width: 100%; border-collapse: collapse; text-align: left; min-width: 900px; }
-    th { padding: 16px 24px; font-size: 0.75rem; text-transform: uppercase; color: var(--muted2); background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--line); white-space: nowrap; }
-    td { padding: 20px 24px; border-bottom: 1px solid var(--line); font-size: 0.90rem; }
-    tr:last-child td { border-bottom: none; }
+    table { width: 100%; border-collapse: collapse; text-align: left; min-width: 1000px; }
+    th { padding: 16px 24px; font-size: 0.7rem; text-transform: uppercase; color: var(--muted2); background: rgba(255,255,255,0.01); border-bottom: 1px solid var(--line); }
+    td { padding: 16px 24px; border-bottom: 1px solid var(--line); font-size: 0.85rem; vertical-align: top; }
+    
+    /* Status Badges */
+    .status-expired { color: #ff6b6b; font-weight: bold; }
+    .status-expiring { color: #ffd93d; font-weight: bold; }
+    .status-valid { color: #6bff9d; font-weight: bold; }
     
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* Expertise / About Section */
     .expertise {
       display: grid;
       grid-template-columns: 1fr 1.5fr;
@@ -126,7 +129,6 @@
     .expertise h2 { font-size: 1.8rem; margin: 0; letter-spacing: -0.03em; }
     .expertise p { color: var(--muted); font-size: 1.05rem; margin: 0 0 20px 0; }
 
-    /* CTA */
     .cta-box {
       background: linear-gradient(90deg, #0a1629, #07111f);
       padding: 60px;
@@ -145,7 +147,7 @@
       transition: 0.2s;
       text-decoration: none;
     }
-    .btn:hover { background: var(--accent); text-decoration: none; }
+    .btn:hover { background: var(--accent); }
 
     footer {
       padding-top: 40px;
@@ -173,7 +175,7 @@
     </div>
     <nav class="nav">
       <a href="#capabilities">Capabilities</a>
-      <a href="#library">Data Library</a>
+      <a href="#data">Data Library</a>
       <a href="#expertise">Expertise</a>
     </nav>
   </header>
@@ -181,236 +183,107 @@
   <main>
     <section class="hero">
       <span class="section-label">Signals Intelligence</span>
-      <h1>Operational Intelligence for Industrial Transformation.</h1>
-      <p>We provide structured datasets and technical signal analysis to support infrastructure owners, industrial operators and Tier-1 consultancies in complex technology migrations.</p>
+      <h1>Operational Intelligence for Industrial Transformation</h1>
+      <p>We provide structured datasets and technical signal analysis to support infrastructure owners, industrial operators and Tier-1 consultancies in complex technology projects.</p>
     </section>
 
     <span class="section-label" id="capabilities">Core Capabilities</span>
     <section class="grid-intel">
       <div class="intel-item">
-        <h3>Vendor Ecosystem Audits</h3>
-        <p>Analysis of cross-platform dependencies between Cloud, ERP (SAP S/4) and Edge environments for precise delivery planning.</p>
+        <h3>Cross-Platform Mapping</h3>
+        <p>Mapping critical links across the entire industrial stack—including Cloud, ERP and Edge assets—to ensure seamless integration and avoid operational downtime.</p>
       </div>
       <div class="intel-item">
-        <h3>Lifecycle Risk Monitoring</h3>
-        <p>Identifying infrastructure obsolescence and operational exposure through public and proprietary signal synthesis.</p>
+        <h3>Infrastructure Risk Tracking</h3>
+        <p>Detecting system aging and operational threats by analyzing real-time market signals and procurement data.</p>
       </div>
       <div class="intel-item">
-        <h3>Tender Intelligence</h3>
-        <p>Pre-tender tracking and procurement analytics for critical infrastructure and public sector frameworks.</p>
+        <h3>Capital Project Forecasting</h3>
+        <p>Early-stage tracking of investment cycles and budget allocations, identifying procurement opportunities long before the official tender release.</p>
       </div>
     </section>
 
-    <section id="library">
-      <span class="section-label" style="margin-top: 80px;">Live Intelligence Samples</span>
-      <h2 style="margin-bottom: 40px;">Dataset Library</h2>
+    <section class="data-library" id="data">
+      <span class="section-label">Data Library</span>
+      <h2>Curated Industrial Datasets</h2>
+      <p style="color: var(--muted); margin-bottom: 40px;">Real-time signals and structured audits for multinational critical infrastructure.</p>
 
       <div class="table-container">
-        <div class="table-title">Transformation Tender & Budget Signals</div>
+        <h3>1. Unified Enterprise Architecture</h3>
         <table>
           <thead>
             <tr>
-              <th>Buyer Org</th>
-              <th>Project Type</th>
-              <th>Est Budget</th>
-              <th>Deadline</th>
-              <th>Stage</th>
-              <th>Urgency Proxy</th>
-              <th>Recommended Action</th>
+              <th>Company</th><th>Sector</th><th>Cloud Stack</th><th>ERP</th><th>Observability</th><th>CI/CD</th><th>Hiring</th><th>Migrations</th><th>Lock-in Score</th><th>Action</th><th>Reason / Evidence</th><th>Source</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><strong>Consip / PA Centrale</strong></td>
-              <td>Public Cloud SaaS – ITSM</td>
-              <td>220.5 M€</td>
-              <td>2026-06-15</td>
-              <td>OPEN TENDER</td>
-              <td>9.5</td>
-              <td>JOIN CONSORTIUM (IMMEDIATE)</td>
-            </tr>
-            <tr>
-              <td><strong>FS Italiane (RFI)</strong></td>
-              <td>Digital Infrastructure & IoT Monitoring</td>
-              <td>1.9 B€</td>
-              <td>2026-12-31</td>
-              <td>PRE-PROCUREMENT (PLANNING LOCKED)</td>
-              <td>8.7</td>
-              <td>POSITION BEFORE RFP (Q2–Q3 2026)</td>
-            </tr>
-            <tr>
-              <td><strong>Leonardo SpA</strong></td>
-              <td>AI & Supercomputing (Davinci-1 Evolution)</td>
-              <td>590 M€</td>
-              <td>2026-Q4 (est)</td>
-              <td>VENDOR ECOSYSTEM EXPANSION</td>
-              <td>8.2</td>
-              <td>TARGET PRIME CONTRACTOR PARTNERS</td>
-            </tr>
-            <tr>
-              <td><strong>Snam</strong></td>
-              <td>Grid Digitalization & Monitoring</td>
-              <td>1.2 B€</td>
-              <td>2027-H1 (est)</td>
-              <td>EXECUTION (FRAMEWORK ACTIVE)</td>
-              <td>7.8</td>
-              <td>TARGET FRAMEWORK CONTRACTORS</td>
-            </tr>
-            <tr>
-              <td><strong>EuroHPC / CINECA</strong></td>
-              <td>HPC Infrastructure</td>
-              <td>290 M€</td>
-              <td>Awarded (2026)</td>
-              <td>POST-AWARD DELIVERY</td>
-              <td>7.5</td>
-              <td>UPSELL TO WINNING VENDOR</td>
-            </tr>
+            <tr><td>Leonardo</td><td>Aerospace/Defense</td><td>Azure / Oracle (PSN)</td><td>SAP</td><td>Azure Monitor</td><td>Jenkins (On-prem)</td><td>0</td><td>1</td><td>9.1</td><td>TOP PRIORITY</td><td>Partnership Microsoft per sovranità dati e PSN.</td><td><a href="https://www.leonardo.com/it/press-release-detail/-/detail/26-05-2021-leonardo-and-microsoft-a-new-partnership-for-a-secure-digitization-of-public-administration-and-national-infrastructures" target="_blank">Link</a></td></tr>
+            <tr><td>Terna</td><td>Energy / Grid</td><td>Private Cloud</td><td>SAP S/4HANA</td><td>Splunk</td><td>Azure DevOps</td><td>0</td><td>1</td><td>8.6</td><td>STRATEGIC</td><td>Piano 24-28: 2 mld € per digitalizzazione rete.</td><td><a href="https://www.terna.it/it/media/comunicati-stampa/dettaglio/terna-piano-industriale-2024-2028" target="_blank">Link</a></td></tr>
+            <tr><td>Italgas</td><td>Utilities</td><td>Azure / GCP</td><td>SAP (100% Cloud)</td><td>Dynatrace</td><td>GitHub Actions</td><td>0</td><td>1</td><td>8.2</td><td>STRATEGIC</td><td>Digital Factory: completata migrazione 100% Cloud.</td><td><a href="https://www.italgas.it/innovazione-digitale/picarro-e-la-digitalizzazione-della-rete/" target="_blank">Link</a></td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="table-container">
-        <div class="table-title">Unified Enterprise Architecture Dataset</div>
+        <h3>2. Vendor Lock-In Analysis</h3>
         <table>
           <thead>
             <tr>
-              <th>Company</th>
-              <th>Sector</th>
-              <th>Primary Cloud</th>
-              <th>Primary ERP</th>
-              <th>Primary Observability</th>
-              <th>Lock-In Score</th>
-              <th>Recommended Action</th>
+              <th>Company</th><th>Cloud</th><th>ERP</th><th>Observability</th><th>CI/CD</th><th>Signals</th><th>Hiring</th><th>Lock-in Score</th><th>Recommended Action</th><th>Reason</th><th>Source</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><strong>Leonardo</strong></td>
-              <td>Aerospace/Defense</td>
-              <td>Azure / Oracle (PSN)</td>
-              <td>SAP</td>
-              <td>Azure Monitor</td>
-              <td>9.1</td>
-              <td>TOP PRIORITY: RFP Submission</td>
-            </tr>
-            <tr>
-              <td><strong>Terna</strong></td>
-              <td>Energy / Grid</td>
-              <td>Private Cloud / Cloud-Native</td>
-              <td>SAP S/4HANA</td>
-              <td>Splunk / Prometheus</td>
-              <td>8.6</td>
-              <td>STRATEGIC: Cloud Governance</td>
-            </tr>
-            <tr>
-              <td><strong>Italgas</strong></td>
-              <td>Utilities</td>
-              <td>Azure / GCP</td>
-              <td>SAP (100% Cloud)</td>
-              <td>Dynatrace</td>
-              <td>8.2</td>
-              <td>STRATEGIC: Cloud Governance</td>
-            </tr>
-            <tr>
-              <td><strong>Enel Grids</strong></td>
-              <td>Energy</td>
-              <td>AWS / Edge</td>
-              <td>SAP</td>
-              <td>New Relic</td>
-              <td>7.5</td>
-              <td>MONITOR: Modernization Track</td>
-            </tr>
+            <tr><td>Leonardo</td><td>Azure / Oracle</td><td>SAP</td><td>Splunk</td><td>Azure DevOps</td><td>3</td><td>0</td><td>88.0</td><td>CRITICAL ENGAGE</td><td>Digitalizzazione PSN vincolata a stack Microsoft/Oracle.</td><td><a href="https://www.leonardo.com/..." target="_blank">Link</a></td></tr>
+            <tr><td>Enel</td><td>AWS</td><td>SAP S/4HANA</td><td>Dynatrace</td><td>GitHub</td><td>3</td><td>0</td><td>81.0</td><td>STRATEGIC ENGAGE</td><td>Migrazione core applicazioni grid su servizi AWS.</td><td><a href="https://www.exprivia.it/..." target="_blank">Link</a></td></tr>
+            <tr><td>A2A</td><td>AWS</td><td>SAP S/4HANA</td><td>New Relic</td><td>GitLab CI</td><td>3</td><td>0</td><td>75.0</td><td>MONITOR</td><td>MoU siglato per transizione massiva Cloud e AI-native.</td><td><a href="https://www.gruppoa2a.it/..." target="_blank">Link</a></td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="table-container">
-        <div class="table-title">Vendor Compliance & Risks (EOL Signals)</div>
+        <h3>3. Market Signals & Migration Map</h3>
         <table>
           <thead>
             <tr>
-              <th>Vendor</th>
-              <th>As Of Date</th>
-              <th>Expiry Date</th>
-              <th>Status</th>
-              <th>Risk Score</th>
-              <th>Reason</th>
-              <th>Action</th>
+              <th>Company</th><th>Type</th><th>Platform</th><th>Score</th><th>Action</th><th>Reason</th><th>Source Title</th><th>Date</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><strong>Salesforce</strong></td>
-              <td>2026-04-17</td>
-              <td>2026-04-10</td>
-              <td>EXPIRED</td>
-              <td>10</td>
-              <td>Certificate expired 7 days ago</td>
-              <td>IMMEDIATE: Contact vendor</td>
-            </tr>
-            <tr>
-              <td><strong>Google Cloud</strong></td>
-              <td>2026-04-17</td>
-              <td>2026-06-15</td>
-              <td>EXPIRING</td>
-              <td>8</td>
-              <td>Expiring within 60 days</td>
-              <td>Request renewal confirmation</td>
-            </tr>
-            <tr>
-              <td><strong>Microsoft Azure</strong></td>
-              <td>2026-04-17</td>
-              <td>2026-12-31</td>
-              <td>VALID</td>
-              <td>2</td>
-              <td>Valid > 6 months</td>
-              <td>Monitor quarterly</td>
-            </tr>
+            <tr><td>S2E / Scaleway</td><td>news</td><td>Cloud (Multi)</td><td>85</td><td>STRATEGIC</td><td>Partnership Cloud Sovrano (Fase Design).</td><td>S2E e Scaleway partnership cloud sovrano</td><td>15 Apr 2026</td></tr>
+            <tr><td>PosteMobile</td><td>news</td><td>Cloud (Multi)</td><td>80</td><td>MONITOR</td><td>Passaggio su rete TIM: migrazione Q1 2026.</td><td>PosteMobile, passaggio su rete TIM</td><td>Q1 2026</td></tr>
+            <tr><td>ISTAT</td><td>news</td><td>Cloud (Multi)</td><td>80</td><td>ENGAGE</td><td>Accordo PSN: migrazione servizi rilevanti.</td><td>ISTAT accordo migrazione servizi</td><td>Jun 2024</td></tr>
           </tbody>
         </table>
       </div>
-      
+
       <div class="table-container">
-        <div class="table-title">Market Signals & Migration Map</div>
+        <h3>4. Vendor Compliance & Lifecycle Risks</h3>
         <table>
           <thead>
             <tr>
-              <th>Entity / Topic</th>
-              <th>Target Platform</th>
-              <th>Score</th>
-              <th>Recommended Action</th>
-              <th>Signal Reason</th>
+              <th>Vendor</th><th>As Of</th><th>Expiry Date</th><th>Status</th><th>Risk Score</th><th>Reason</th><th>Action</th>
             </tr>
           </thead>
           <tbody>
+            <tr><td>Salesforce</td><td>2026-04-17</td><td>2026-04-10</td><td><span class="status-expired">EXPIRED</span></td><td>10</td><td>Certificate expired 7 days ago</td><td>IMMEDIATE: Contact vendor</td></tr>
+            <tr><td>Google Cloud</td><td>2026-04-17</td><td>2026-06-15</td><td><span class="status-expiring">EXPIRING</span></td><td>8</td><td>Expiring within 60 days</td><td>Request renewal</td></tr>
+            <tr><td>Microsoft Azure</td><td>2026-04-17</td><td>2026-12-31</td><td><span class="status-valid">VALID</span></td><td>2</td><td>Valid > 6 months</td><td>Monitor quarterly</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-container">
+        <h3>5. Transformation Tenders & Budget Signals</h3>
+        <table>
+          <thead>
             <tr>
-              <td><strong>S2E e Scaleway</strong></td>
-              <td>Cloud (Multi)</td>
-              <td>85</td>
-              <td>STRATEGIC - Alta priorità</td>
-              <td>Partnership Cloud Sovrano: segnale di investimento governativo.</td>
+              <th>Buyer Org</th><th>Project Type</th><th>Est. Budget</th><th>Deadline</th><th>Stage</th><th>Urgency</th><th>Recommended Action</th><th>Trigger</th><th>Source</th>
             </tr>
-            <tr>
-              <td><strong>PosteMobile</strong></td>
-              <td>Cloud (Multi)</td>
-              <td>80</td>
-              <td>MONITOR</td>
-              <td>Annuncio trasformazione: passaggio su rete TIM.</td>
-            </tr>
-            <tr>
-              <td><strong>ISTAT</strong></td>
-              <td>Cloud (Multi)</td>
-              <td>80</td>
-              <td>ENGAGE</td>
-              <td>Evidenza di migrazione massiva pianificata su infrastruttura PSN.</td>
-            </tr>
-            <tr>
-              <td><strong>Alpinestars</strong></td>
-              <td>Azure</td>
-              <td>75</td>
-              <td>ENGAGE</td>
-              <td>Leadership Hiring: l'azienda sta costruendo il team di migrazione.</td>
-            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Consip / PA</td><td>Public Cloud SaaS</td><td>220.5 M€</td><td>2026-06-15</td><td>OPEN TENDER</td><td>9.5</td><td>JOIN CONSORTIUM</td><td>Gara attiva → accesso via partner Tier-1</td><td><a href="https://www.consip.it/..." target="_blank">Link</a></td></tr>
+            <tr><td>FS Italiane (RFI)</td><td>Digital Infra & IoT</td><td>1.9 B€</td><td>2026-12-31</td><td>PRE-PROCUREMENT</td><td>8.7</td><td>POSITION BEFORE RFP</td><td>Budget allocato, vendor non finalizzati</td><td><a href="https://www.fsnews.it/..." target="_blank">Link</a></td></tr>
+            <tr><td>Snam</td><td>Grid Digitalization</td><td>1.2 B€</td><td>2027-H1</td><td>EXECUTION</td><td>7.8</td><td>TARGET FRAMEWORK</td><td>Budget approvato → vendite indirette</td><td><a href="https://www.snam.it/..." target="_blank">Link</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -419,26 +292,8 @@
     <section class="expertise" id="expertise">
       <div>
         <span class="section-label">Institutional Standard</span>
-        <h2>Experience in Critical Infrastructure.</h2>
+        <h2>Experience in Critical Infrastructure</h2>
       </div>
       <div>
         <p>Infrastructure Data Labs bridges the gap between high-level strategy and technical execution. Our methodology is rooted in international IT delivery experience within Zurich's industrial hub (ABB) and infrastructure advisory for global organizations (Deloitte / GE Vernova).</p>
-        <p>We do not provide generic data scraping. We deliver curated intelligence designed for the rigorous standards of multinational industrial operators and their strategic partners.</p>
-      </div>
-    </section>
-
-    <section class="cta-box">
-      <h2 style="margin-top:0">Request Dataset Access.</h2>
-      <p style="color:var(--muted); margin-bottom:30px">For custom datasets or account-specific intelligence projects.</p>
-      <a href="mailto:info@infrastructuredatalabs.com" class="btn">Contact Operations</a>
-    </section>
-  </main>
-
-  <footer>
-    <div>© 2026 Infrastructure Data Labs | Zurich · Italy · Remote</div>
-    <div>Industrial Intelligence Division</div>
-  </footer>
-</div>
-
-</body>
-</html>
+        <p><strong>Beyond Raw Data
