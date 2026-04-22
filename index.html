@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Infrastructure Data Labs | Intelligence for Industrial Assets</title>
-  <meta name="description" content="Signals intelligence for critical infrastructure, IT/OT convergence, and industrial transformation." />
+  <title>Infrastructure Data Labs | Industrial Intelligence</title>
   <style>
     :root {
       --bg: #050a14;
@@ -16,146 +15,125 @@
       --line: rgba(255,255,255,0.08);
       --accent: #65b7ff;
       --accent2: #7dffcf;
-      --accent3: #9b8cff;
-      --radius: 12px;
+      --radius: 8px;
       --max: 1100px;
     }
 
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
       color: var(--text);
       background: var(--bg);
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .wrap { max-width: var(--max); margin: 0 auto; padding: 40px 20px; }
 
-    /* Header */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 60px;
+      padding-bottom: 40px;
       border-bottom: 1px solid var(--line);
       margin-bottom: 60px;
     }
 
-    .brand { display: flex; align-items: center; gap: 14px; font-weight: 700; letter-spacing: -0.02em; font-size: 1.2rem; }
-    .mark { width: 32px; height: 32px; background: var(--accent); border-radius: 6px; display: grid; place-items: center; color: var(--bg); font-weight: 900; }
-    .nav { display: flex; gap: 32px; font-size: 0.9rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
-    .nav a:hover { color: var(--accent); }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.1rem; }
+    .mark { width: 28px; height: 28px; background: var(--accent); border-radius: 4px; display: grid; place-items: center; color: var(--bg); font-weight: 900; font-size: 0.8rem; }
+    .nav { display: flex; gap: 24px; font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .nav a:hover { color: #fff; }
 
-    /* Hero Section */
-    .hero { margin-bottom: 100px; }
+    .hero { margin-bottom: 80px; }
     .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2rem, 4vw, 3.5rem);
       line-height: 1.1;
-      letter-spacing: -0.04em;
-      margin: 0 0 24px 0;
-      font-weight: 700;
-      max-width: 20ch;
+      letter-spacing: -0.03em;
+      margin: 0 0 20px 0;
+      max-width: 22ch;
     }
     .hero p {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       color: var(--muted);
-      max-width: 65ch;
-      margin-bottom: 40px;
+      max-width: 60ch;
+      margin-bottom: 32px;
     }
 
-    /* Intelligence Grid */
     .section-label {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      margin-bottom: 24px;
+      letter-spacing: 0.1em;
+      color: var(--accent2);
+      margin-bottom: 16px;
       display: block;
       font-weight: 700;
     }
 
-    .grid-intel {
+    .grid-services {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      gap: 1px;
       background: var(--line);
       border: 1px solid var(--line);
       margin-bottom: 80px;
     }
-    .intel-item {
-      background: var(--bg);
-      padding: 32px;
-    }
-    .intel-item h3 { font-size: 1.1rem; margin: 0 0 12px 0; font-weight: 600; }
-    .intel-item p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+    .service-card { background: var(--bg); padding: 30px; }
+    .service-card h3 { font-size: 1rem; margin: 0 0 10px 0; color: #fff; }
+    .service-card p { font-size: 0.9rem; color: var(--muted); margin: 0; }
 
-    /* Data Table / Dashboard Style */
+    /* Data Table - Real CSV Samples */
     .table-container {
       background: var(--card);
       border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
+      overflow-x: auto;
       margin-bottom: 80px;
     }
-    table { width: 100%; border-collapse: collapse; text-align: left; }
-    th { padding: 16px 24px; font-size: 0.75rem; text-transform: uppercase; color: var(--muted2); background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--line); }
-    td { padding: 20px 24px; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
-    tr:last-child td { border-bottom: none; }
-    .status-tag {
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      background: rgba(101,183,255,0.1);
-      color: var(--accent);
+    table { width: 100%; border-collapse: collapse; text-align: left; min-width: 800px; }
+    th { padding: 14px 20px; font-size: 0.7rem; text-transform: uppercase; color: var(--muted2); background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--line); }
+    td { padding: 16px 20px; border-bottom: 1px solid var(--line); font-size: 0.88rem; }
+    .tag {
+      padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; font-weight: 700;
+      text-transform: uppercase; background: rgba(255,255,255,0.05); color: var(--muted);
     }
+    .high { color: var(--accent2); border: 1px solid rgba(125,255,207,0.2); }
 
-    /* Pedigree / About Section */
-    .pedigree {
+    .expertise {
       display: grid;
       grid-template-columns: 1fr 1.5fr;
-      gap: 60px;
-      padding: 80px 0;
+      gap: 40px;
+      padding: 60px 0;
       border-top: 1px solid var(--line);
     }
-    .pedigree h2 { font-size: 1.8rem; margin: 0; letter-spacing: -0.03em; }
-    .pedigree p { color: var(--muted); font-size: 1.05rem; margin: 0 0 20px 0; }
+    .expertise h2 { font-size: 1.5rem; margin: 0; }
+    .expertise p { color: var(--muted); margin: 0 0 15px 0; }
 
-    /* CTA */
-    .cta-box {
-      background: linear-gradient(90deg, #0a1629, #07111f);
-      padding: 60px;
+    .cta {
+      background: var(--card);
+      padding: 40px;
       text-align: center;
-      border-radius: var(--radius);
       border: 1px solid var(--line);
     }
     .btn {
       display: inline-block;
-      background: var(--text);
+      background: #fff;
       color: var(--bg);
-      padding: 16px 32px;
-      border-radius: 6px;
+      padding: 12px 24px;
       font-weight: 700;
-      font-size: 1rem;
-      transition: 0.2s;
+      font-size: 0.9rem;
+      border-radius: 4px;
     }
-    .btn:hover { background: var(--accent); }
 
     footer {
-      padding-top: 40px;
-      margin-top: 80px;
+      padding: 40px 0;
       border-top: 1px solid var(--line);
       color: var(--muted2);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       display: flex;
       justify-content: space-between;
     }
 
     @media (max-width: 800px) {
-      .grid-intel, .pedigree { grid-template-columns: 1fr; }
-      header { flex-direction: column; gap: 20px; align-items: flex-start; }
+      .grid-services, .expertise { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -164,100 +142,106 @@
 <div class="wrap">
   <header>
     <div class="brand">
-      <div class="mark">ID</div>
+      <div class="mark">IDL</div>
       <span>Infrastructure Data Labs</span>
     </div>
     <nav class="nav">
-      <a href="#intelligence">Intelligence</a>
-      <a href="#pedigree">Pedigree</a>
+      <a href="#data">Datasets</a>
+      <a href="#expertise">Expertise</a>
       <a href="mailto:info@infrastructuredatalabs.com">Contact</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <span class="section-label">Signals Intelligence</span>
-      <h1>Operational Intelligence for Industrial Transformation.</h1>
-      <p>We provide structured datasets and technical signal analysis to support infrastructure owners, industrial operators, and Tier-1 consultancies in complex technology migrations.</p>
+      <span class="section-label">Industrial Signals Intelligence</span>
+      <h1>Data Assets for Critical Infrastructure Projects.</h1>
+      <p>We provide curated datasets for industrial operators and strategic advisors to monitor technology shifts, infrastructure investment and large-scale transformation programs.</p>
+      <a href="mailto:info@infrastructuredatalabs.com" class="btn">Request Dataset Access</a>
     </section>
 
-    <span class="section-label">Core Capabilities</span>
-    <section class="grid-intel">
-      <div class="intel-item">
-        <h3>Vendor Ecosystem Audits</h3>
-        <p>Mapping dependency stacks across Cloud, ERP (SAP S/4), and Edge environments for precise delivery planning.</p>
+    <section class="grid-services">
+      <div class="service-card">
+        <h3>Vendor Ecosystem Mapping</h3>
+        <p>Analysis of cross-platform dependencies between Cloud, ERP and Industrial Edge environments.</p>
       </div>
-      <div class="intel-item">
-        <h3>Exposure Monitoring</h3>
-        <p>Identifying operational risk and technical debt triggers through public and proprietary signal synthesis.</p>
+      <div class="service-card">
+        <h3>Lifecycle Risk Monitoring</h3>
+        <p>Identification of infrastructure obsolescence and technical exposure within large industrial accounts.</p>
       </div>
-      <div class="intel-item">
-        <h3>Tender SIGINT</h3>
-        <p>Pre-tender tracking and procurement analytics for critical infrastructure and public sector frameworks.</p>
+      <div class="service-card">
+        <h3>Capital Project Signals</h3>
+        <p>Pre-procurement tracking of digital infrastructure budgets and framework agreement activities.</p>
       </div>
     </section>
 
-    <span class="section-label" id="intelligence">Sample Intelligence Briefing</span>
+    <span class="section-label" id="data">Live Intelligence Samples</span>
     <div class="table-container">
       <table>
         <thead>
           <tr>
-            <th>Asset/Entity</th>
-            <th>Trigger Event</th>
-            <th>Technology Context</th>
-            <th>Strategic Classification</th>
+            <th>Entity</th>
+            <th>Program / Signal</th>
+            <th>Technology Focus</th>
+            <th>Budget / Status</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Leonardo S.p.A.</strong></td>
-            <td>Sovereign Cloud Deployment</td>
-            <td>Azure / Oracle / Cyber Security</td>
-            <td><span class="status-tag">Market Analysis</span></td>
+            <td><strong>FS Italiane (RFI)</strong></td>
+            <td>Digital Infrastructure & IoT Monitoring</td>
+            <td>Infrastrutture Critiche</td>
+            <td><span class="tag high">€1.9 Billion</span></td>
           </tr>
           <tr>
             <td><strong>Terna</strong></td>
-            <td>Grid Digitalization 2024-28</td>
+            <td>Grid Digitalization 2024-2028</td>
             <td>Private Cloud / SAP S/4HANA</td>
-            <td><span class="status-tag">Delivery Support</span></td>
+            <td><span class="tag">Planning Locked</span></td>
           </tr>
           <tr>
-            <td><strong>Enel Grids</strong></td>
-            <td>Managed Services Modernization</td>
-            <td>AWS / Edge Computing</td>
-            <td><span class="status-tag">Account Mapping</span></td>
+            <td><strong>Snam</strong></td>
+            <td>Grid Monitoring & Digitalization</td>
+            <td>IoT / Edge Computing</td>
+            <td><span class="tag high">€1.2 Billion</span></td>
+          </tr>
+          <tr>
+            <td><strong>Leonardo</strong></td>
+            <td>Sovereign Cloud (PSN) Expansion</td>
+            <td>Azure / Oracle Stack</td>
+            <td><span class="tag">Strategic Account</span></td>
           </tr>
           <tr>
             <td><strong>Consip / PA</strong></td>
-            <td>Cloud Framework Agreements</td>
-            <td>Multi-Cloud SaaS / IaaS</td>
-            <td><span class="status-tag">Tender Intelligence</span></td>
+            <td>Public Cloud Framework (SaaS)</td>
+            <td>Multi-Cloud Governance</td>
+            <td><span class="tag high">€220 Million</span></td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <section class="pedigree" id="pedigree">
+    <section class="expertise" id="expertise">
       <div>
-        <span class="section-label">Institutional Standard</span>
-        <h2>Experience in Critical Infrastructure.</h2>
+        <span class="section-label">Industrial Roots</span>
+        <h2>Built for Industrial Standards.</h2>
       </div>
       <div>
-        <p>Infrastructure Data Labs bridges the gap between high-level strategy and technical execution. Our methodology is rooted in international IT delivery experience within Zurich's industrial hub (ABB) and infrastructure advisory for global organizations (Deloitte / GE Vernova).</p>
-        <p>We do not provide generic data scraping. We deliver curated intelligence designed for the rigorous standards of multinational industrial operators and their strategic partners.</p>
+        <p>Infrastructure Data Labs operates at the intersection of corporate IT delivery and infrastructure advisory. Our methodology is built on experience within high-stakes environments in Zurich (ABB) and strategic consulting (Deloitte).</p>
+        <p>We deliver clean and actionable data for teams who manage the complexity of IT/OT convergence and large scale energy or industrial assets.</p>
       </div>
     </section>
 
-    <section class="cta-box">
-      <h2 style="margin-top:0">Request a technical brief.</h2>
-      <p style="color:var(--muted); margin-bottom:30px">For custom datasets or account-specific intelligence projects.</p>
-      <a href="mailto:info@infrastructuredatalabs.com" class="btn">info@infrastructuredatalabs.com</a>
+    <section class="cta">
+      <h2 style="margin-top:0">Direct Inquiry</h2>
+      <p style="color:var(--muted); margin-bottom:24px">Contact us for custom account views or specific industrial data projects.</p>
+      <a href="mailto:info@infrastructuredatalabs.com" style="color:var(--accent); font-weight:700; text-decoration:none; font-size:1.1rem;">info@infrastructuredatalabs.com</a>
     </section>
   </main>
 
   <footer>
-    <div>© 2026 Infrastructure Data Labs | Zurich · Italy · Remote</div>
-    <div>Industrial Intelligence Division</div>
+    <div>© 2026 Infrastructure Data Labs | Zurich · Italy</div>
+    <div>Industrial Intelligence for Infrastructure and Energy Sector</div>
   </footer>
 </div>
 
