@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Infrastructure Data Labs | Industrial Intelligence</title>
+  <meta name="description" content="Signals intelligence for critical infrastructure, IT/OT convergence and industrial transformation." />
   <style>
     :root {
       --bg: #050a14;
@@ -15,125 +16,150 @@
       --line: rgba(255,255,255,0.08);
       --accent: #65b7ff;
       --accent2: #7dffcf;
-      --radius: 8px;
+      --accent3: #9b8cff;
+      --radius: 12px;
       --max: 1100px;
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
       color: var(--text);
       background: var(--bg);
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     .wrap { max-width: var(--max); margin: 0 auto; padding: 40px 20px; }
 
+    /* Header */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 40px;
+      padding-bottom: 60px;
       border-bottom: 1px solid var(--line);
       margin-bottom: 60px;
     }
 
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.1rem; }
-    .mark { width: 28px; height: 28px; background: var(--accent); border-radius: 4px; display: grid; place-items: center; color: var(--bg); font-weight: 900; font-size: 0.8rem; }
-    .nav { display: flex; gap: 24px; font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
-    .nav a:hover { color: #fff; }
+    .brand { display: flex; align-items: center; gap: 14px; font-weight: 700; letter-spacing: -0.02em; font-size: 1.2rem; }
+    .mark { width: 32px; height: 32px; background: var(--accent); border-radius: 6px; display: grid; place-items: center; color: var(--bg); font-weight: 900; }
+    .nav { display: flex; gap: 32px; font-size: 0.9rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .nav a:hover { color: var(--accent); }
 
-    .hero { margin-bottom: 80px; }
+    /* Hero Section */
+    .hero { margin-bottom: 100px; }
     .hero h1 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-size: clamp(2.5rem, 5vw, 4rem);
       line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin: 0 0 20px 0;
+      letter-spacing: -0.04em;
+      margin: 0 0 24px 0;
+      font-weight: 700;
       max-width: 22ch;
     }
     .hero p {
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       color: var(--muted);
-      max-width: 60ch;
-      margin-bottom: 32px;
+      max-width: 65ch;
+      margin-bottom: 40px;
     }
 
+    /* Intelligence Grid */
     .section-label {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent2);
-      margin-bottom: 16px;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 24px;
       display: block;
       font-weight: 700;
     }
 
-    .grid-services {
+    .grid-intel {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
+      gap: 2px;
       background: var(--line);
       border: 1px solid var(--line);
       margin-bottom: 80px;
     }
-    .service-card { background: var(--bg); padding: 30px; }
-    .service-card h3 { font-size: 1rem; margin: 0 0 10px 0; color: #fff; }
-    .service-card p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+    .intel-item {
+      background: var(--bg);
+      padding: 32px;
+    }
+    .intel-item h3 { font-size: 1.1rem; margin: 0 0 12px 0; font-weight: 600; }
+    .intel-item p { font-size: 0.95rem; color: var(--muted); margin: 0; }
 
-    /* Data Table - Real CSV Samples */
+    /* Data Table / Dashboard Style */
     .table-container {
       background: var(--card);
       border: 1px solid var(--line);
+      border-radius: var(--radius);
       overflow-x: auto;
-      margin-bottom: 80px;
+      margin-bottom: 60px;
     }
-    table { width: 100%; border-collapse: collapse; text-align: left; min-width: 800px; }
-    th { padding: 14px 20px; font-size: 0.7rem; text-transform: uppercase; color: var(--muted2); background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--line); }
-    td { padding: 16px 20px; border-bottom: 1px solid var(--line); font-size: 0.88rem; }
-    .tag {
-      padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; font-weight: 700;
-      text-transform: uppercase; background: rgba(255,255,255,0.05); color: var(--muted);
+    .table-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 20px 24px 0;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
-    .high { color: var(--accent2); border: 1px solid rgba(125,255,207,0.2); }
+    table { width: 100%; border-collapse: collapse; text-align: left; min-width: 900px; }
+    th { padding: 16px 24px; font-size: 0.75rem; text-transform: uppercase; color: var(--muted2); background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--line); white-space: nowrap; }
+    td { padding: 20px 24px; border-bottom: 1px solid var(--line); font-size: 0.90rem; }
+    tr:last-child td { border-bottom: none; }
+    
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
+    /* Expertise / About Section */
     .expertise {
       display: grid;
       grid-template-columns: 1fr 1.5fr;
-      gap: 40px;
-      padding: 60px 0;
+      gap: 60px;
+      padding: 80px 0;
       border-top: 1px solid var(--line);
     }
-    .expertise h2 { font-size: 1.5rem; margin: 0; }
-    .expertise p { color: var(--muted); margin: 0 0 15px 0; }
+    .expertise h2 { font-size: 1.8rem; margin: 0; letter-spacing: -0.03em; }
+    .expertise p { color: var(--muted); font-size: 1.05rem; margin: 0 0 20px 0; }
 
-    .cta {
-      background: var(--card);
-      padding: 40px;
+    /* CTA */
+    .cta-box {
+      background: linear-gradient(90deg, #0a1629, #07111f);
+      padding: 60px;
       text-align: center;
+      border-radius: var(--radius);
       border: 1px solid var(--line);
     }
     .btn {
       display: inline-block;
-      background: #fff;
+      background: var(--text);
       color: var(--bg);
-      padding: 12px 24px;
+      padding: 16px 32px;
+      border-radius: 6px;
       font-weight: 700;
-      font-size: 0.9rem;
-      border-radius: 4px;
+      font-size: 1rem;
+      transition: 0.2s;
+      text-decoration: none;
     }
+    .btn:hover { background: var(--accent); text-decoration: none; }
 
     footer {
-      padding: 40px 0;
+      padding-top: 40px;
+      margin-top: 80px;
       border-top: 1px solid var(--line);
       color: var(--muted2);
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       display: flex;
       justify-content: space-between;
     }
 
     @media (max-width: 800px) {
-      .grid-services, .expertise { grid-template-columns: 1fr; }
+      .grid-intel, .expertise { grid-template-columns: 1fr; }
+      header { flex-direction: column; gap: 20px; align-items: flex-start; }
     }
   </style>
 </head>
@@ -142,108 +168,223 @@
 <div class="wrap">
   <header>
     <div class="brand">
-      <div class="mark">IDL</div>
+      <div class="mark">ID</div>
       <span>Infrastructure Data Labs</span>
     </div>
     <nav class="nav">
-      <a href="#data">Datasets</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#library">Data Library</a>
       <a href="#expertise">Expertise</a>
-      <a href="mailto:info@infrastructuredatalabs.com">Contact</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <span class="section-label">Industrial Signals Intelligence</span>
-      <h1>Data Assets for Critical Infrastructure Projects.</h1>
-      <p>We provide curated datasets for industrial operators and strategic advisors to monitor technology shifts, infrastructure investment and large-scale transformation programs.</p>
-      <a href="mailto:info@infrastructuredatalabs.com" class="btn">Request Dataset Access</a>
+      <span class="section-label">Signals Intelligence</span>
+      <h1>Operational Intelligence for Industrial Transformation.</h1>
+      <p>We provide structured datasets and technical signal analysis to support infrastructure owners, industrial operators and Tier-1 consultancies in complex technology migrations.</p>
     </section>
 
-    <section class="grid-services">
-      <div class="service-card">
-        <h3>Vendor Ecosystem Mapping</h3>
-        <p>Analysis of cross-platform dependencies between Cloud, ERP and Industrial Edge environments.</p>
+    <span class="section-label" id="capabilities">Core Capabilities</span>
+    <section class="grid-intel">
+      <div class="intel-item">
+        <h3>Vendor Ecosystem Audits</h3>
+        <p>Analysis of cross-platform dependencies between Cloud, ERP (SAP S/4) and Edge environments for precise delivery planning.</p>
       </div>
-      <div class="service-card">
+      <div class="intel-item">
         <h3>Lifecycle Risk Monitoring</h3>
-        <p>Identification of infrastructure obsolescence and technical exposure within large industrial accounts.</p>
+        <p>Identifying infrastructure obsolescence and operational exposure through public and proprietary signal synthesis.</p>
       </div>
-      <div class="service-card">
-        <h3>Capital Project Signals</h3>
-        <p>Pre-procurement tracking of digital infrastructure budgets and framework agreement activities.</p>
-      </div>
-    </section>
-
-    <span class="section-label" id="data">Live Intelligence Samples</span>
-    <div class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Entity</th>
-            <th>Program / Signal</th>
-            <th>Technology Focus</th>
-            <th>Budget / Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>FS Italiane (RFI)</strong></td>
-            <td>Digital Infrastructure & IoT Monitoring</td>
-            <td>Infrastrutture Critiche</td>
-            <td><span class="tag high">€1.9 Billion</span></td>
-          </tr>
-          <tr>
-            <td><strong>Terna</strong></td>
-            <td>Grid Digitalization 2024-2028</td>
-            <td>Private Cloud / SAP S/4HANA</td>
-            <td><span class="tag">Planning Locked</span></td>
-          </tr>
-          <tr>
-            <td><strong>Snam</strong></td>
-            <td>Grid Monitoring & Digitalization</td>
-            <td>IoT / Edge Computing</td>
-            <td><span class="tag high">€1.2 Billion</span></td>
-          </tr>
-          <tr>
-            <td><strong>Leonardo</strong></td>
-            <td>Sovereign Cloud (PSN) Expansion</td>
-            <td>Azure / Oracle Stack</td>
-            <td><span class="tag">Strategic Account</span></td>
-          </tr>
-          <tr>
-            <td><strong>Consip / PA</strong></td>
-            <td>Public Cloud Framework (SaaS)</td>
-            <td>Multi-Cloud Governance</td>
-            <td><span class="tag high">€220 Million</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <section class="expertise" id="expertise">
-      <div>
-        <span class="section-label">Industrial Roots</span>
-        <h2>Built for Industrial Standards.</h2>
-      </div>
-      <div>
-        <p>Infrastructure Data Labs operates at the intersection of corporate IT delivery and infrastructure advisory. Our methodology is built on experience within high-stakes environments in Zurich (ABB) and strategic consulting (Deloitte).</p>
-        <p>We deliver clean and actionable data for teams who manage the complexity of IT/OT convergence and large scale energy or industrial assets.</p>
+      <div class="intel-item">
+        <h3>Tender Intelligence</h3>
+        <p>Pre-tender tracking and procurement analytics for critical infrastructure and public sector frameworks.</p>
       </div>
     </section>
 
-    <section class="cta">
-      <h2 style="margin-top:0">Direct Inquiry</h2>
-      <p style="color:var(--muted); margin-bottom:24px">Contact us for custom account views or specific industrial data projects.</p>
-      <a href="mailto:info@infrastructuredatalabs.com" style="color:var(--accent); font-weight:700; text-decoration:none; font-size:1.1rem;">info@infrastructuredatalabs.com</a>
-    </section>
-  </main>
+    <section id="library">
+      <span class="section-label" style="margin-top: 80px;">Live Intelligence Samples</span>
+      <h2 style="margin-bottom: 40px;">Dataset Library</h2>
 
-  <footer>
-    <div>© 2026 Infrastructure Data Labs | Zurich · Italy</div>
-    <div>Industrial Intelligence for Infrastructure and Energy Sector</div>
-  </footer>
-</div>
+      <div class="table-container">
+        <div class="table-title">Transformation Tender & Budget Signals</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Buyer Org</th>
+              <th>Project Type</th>
+              <th>Est Budget</th>
+              <th>Deadline</th>
+              <th>Stage</th>
+              <th>Urgency Proxy</th>
+              <th>Recommended Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Consip / PA Centrale</strong></td>
+              <td>Public Cloud SaaS – ITSM</td>
+              <td>220.5 M€</td>
+              <td>2026-06-15</td>
+              <td>OPEN TENDER</td>
+              <td>9.5</td>
+              <td>JOIN CONSORTIUM (IMMEDIATE)</td>
+            </tr>
+            <tr>
+              <td><strong>FS Italiane (RFI)</strong></td>
+              <td>Digital Infrastructure & IoT Monitoring</td>
+              <td>1.9 B€</td>
+              <td>2026-12-31</td>
+              <td>PRE-PROCUREMENT (PLANNING LOCKED)</td>
+              <td>8.7</td>
+              <td>POSITION BEFORE RFP (Q2–Q3 2026)</td>
+            </tr>
+            <tr>
+              <td><strong>Leonardo SpA</strong></td>
+              <td>AI & Supercomputing (Davinci-1 Evolution)</td>
+              <td>590 M€</td>
+              <td>2026-Q4 (est)</td>
+              <td>VENDOR ECOSYSTEM EXPANSION</td>
+              <td>8.2</td>
+              <td>TARGET PRIME CONTRACTOR PARTNERS</td>
+            </tr>
+            <tr>
+              <td><strong>Snam</strong></td>
+              <td>Grid Digitalization & Monitoring</td>
+              <td>1.2 B€</td>
+              <td>2027-H1 (est)</td>
+              <td>EXECUTION (FRAMEWORK ACTIVE)</td>
+              <td>7.8</td>
+              <td>TARGET FRAMEWORK CONTRACTORS</td>
+            </tr>
+            <tr>
+              <td><strong>EuroHPC / CINECA</strong></td>
+              <td>HPC Infrastructure</td>
+              <td>290 M€</td>
+              <td>Awarded (2026)</td>
+              <td>POST-AWARD DELIVERY</td>
+              <td>7.5</td>
+              <td>UPSELL TO WINNING VENDOR</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-</body>
-</html>
+      <div class="table-container">
+        <div class="table-title">Unified Enterprise Architecture Dataset</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Sector</th>
+              <th>Primary Cloud</th>
+              <th>Primary ERP</th>
+              <th>Primary Observability</th>
+              <th>Lock-In Score</th>
+              <th>Recommended Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Leonardo</strong></td>
+              <td>Aerospace/Defense</td>
+              <td>Azure / Oracle (PSN)</td>
+              <td>SAP</td>
+              <td>Azure Monitor</td>
+              <td>9.1</td>
+              <td>TOP PRIORITY: RFP Submission</td>
+            </tr>
+            <tr>
+              <td><strong>Terna</strong></td>
+              <td>Energy / Grid</td>
+              <td>Private Cloud / Cloud-Native</td>
+              <td>SAP S/4HANA</td>
+              <td>Splunk / Prometheus</td>
+              <td>8.6</td>
+              <td>STRATEGIC: Cloud Governance</td>
+            </tr>
+            <tr>
+              <td><strong>Italgas</strong></td>
+              <td>Utilities</td>
+              <td>Azure / GCP</td>
+              <td>SAP (100% Cloud)</td>
+              <td>Dynatrace</td>
+              <td>8.2</td>
+              <td>STRATEGIC: Cloud Governance</td>
+            </tr>
+            <tr>
+              <td><strong>Enel Grids</strong></td>
+              <td>Energy</td>
+              <td>AWS / Edge</td>
+              <td>SAP</td>
+              <td>New Relic</td>
+              <td>7.5</td>
+              <td>MONITOR: Modernization Track</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-container">
+        <div class="table-title">Vendor Compliance & Risks (EOL Signals)</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Vendor</th>
+              <th>As Of Date</th>
+              <th>Expiry Date</th>
+              <th>Status</th>
+              <th>Risk Score</th>
+              <th>Reason</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Salesforce</strong></td>
+              <td>2026-04-17</td>
+              <td>2026-04-10</td>
+              <td>EXPIRED</td>
+              <td>10</td>
+              <td>Certificate expired 7 days ago</td>
+              <td>IMMEDIATE: Contact vendor</td>
+            </tr>
+            <tr>
+              <td><strong>Google Cloud</strong></td>
+              <td>2026-04-17</td>
+              <td>2026-06-15</td>
+              <td>EXPIRING</td>
+              <td>8</td>
+              <td>Expiring within 60 days</td>
+              <td>Request renewal confirmation</td>
+            </tr>
+            <tr>
+              <td><strong>Microsoft Azure</strong></td>
+              <td>2026-04-17</td>
+              <td>2026-12-31</td>
+              <td>VALID</td>
+              <td>2</td>
+              <td>Valid > 6 months</td>
+              <td>Monitor quarterly</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="table-container">
+        <div class="table-title">Market Signals & Migration Map</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Entity / Topic</th>
+              <th>Target Platform</th>
+              <th>Score</th>
+              <th>Recommended Action</th>
+              <th>Signal Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>S2E e Scaleway</strong></td>
+              <td>Cloud (Multi)</td>
+              <td>85</td>
+              <td>
