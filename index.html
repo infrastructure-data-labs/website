@@ -44,7 +44,7 @@
 
     .brand { display: flex; align-items: center; gap: 14px; font-weight: 700; letter-spacing: -0.02em; font-size: 1.2rem; }
     .mark { width: 32px; height: 32px; background: var(--accent); border-radius: 6px; display: grid; place-items: center; color: var(--bg); font-weight: 900; }
-    .nav { display: flex; gap: 32px; font-size: 0.9rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .nav { display: flex; gap: 32px; font-size: 0.9rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; flex-wrap: wrap; }
     .nav a { text-decoration: none; color: inherit; transition: 0.2s; }
     .nav a:hover { color: var(--accent); }
 
@@ -82,6 +82,16 @@
       border: 1px solid var(--line);
       margin-bottom: 80px;
     }
+    
+    .grid-use-cases {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-bottom: 80px;
+    }
+
     .intel-item {
       background: var(--bg);
       padding: 32px;
@@ -128,6 +138,15 @@
     }
     .expertise h2 { font-size: 1.8rem; margin: 0; letter-spacing: -0.03em; }
     .expertise p { color: var(--muted); font-size: 1.05rem; margin: 0 0 20px 0; }
+    
+    .methodology-list {
+      color: var(--muted);
+      padding-left: 20px;
+      margin-bottom: 30px;
+      font-size: 1.05rem;
+    }
+    .methodology-list li { margin-bottom: 10px; }
+    .methodology-list strong { color: var(--text); }
 
     .cta-box {
       background: linear-gradient(90deg, #0a1629, #07111f);
@@ -160,7 +179,7 @@
     }
 
     @media (max-width: 800px) {
-      .grid-intel, .expertise { grid-template-columns: 1fr; }
+      .grid-intel, .grid-use-cases, .expertise { grid-template-columns: 1fr; }
       header { flex-direction: column; gap: 20px; align-items: flex-start; }
     }
   </style>
@@ -175,7 +194,9 @@
     </div>
     <nav class="nav">
       <a href="#capabilities">Capabilities</a>
+      <a href="#methodology">Methodology</a>
       <a href="#data">Data Library</a>
+      <a href="#use-cases">Use Cases</a>
       <a href="#expertise">Expertise</a>
     </nav>
   </header>
@@ -200,6 +221,33 @@
       <div class="intel-item">
         <h3>Capital Project Forecasting</h3>
         <p>Early-stage tracking of investment cycles and budget allocations, identifying procurement opportunities long before the official tender release.</p>
+      </div>
+    </section>
+
+    <section class="expertise" id="methodology" style="padding-top: 0; border-top: none; padding-bottom: 40px;">
+      <div>
+        <span class="section-label">How We Build Intelligence</span>
+        <h2>From Raw Signals to Decision-Grade Data</h2>
+        <p style="margin-top: 16px;">We do not provide raw data. We structure fragmented industrial signals into actionable, highly defensible intelligence built for enterprise decision-makers.</p>
+      </div>
+      <div>
+        <h3 style="margin-top:0;">1. Defensible Sources</h3>
+        <p style="color: var(--muted); margin-bottom: 12px;">All datasets are built on a rigorous combination of vectors:</p>
+        <ul class="methodology-list">
+          <li><strong>Institutional:</strong> Financial reports, official PR, public tenders (e.g., Consip).</li>
+          <li><strong>Technological:</strong> Vendor documentation (AWS, Microsoft), engineering job postings.</li>
+          <li><strong>Market:</strong> Industrial news, strategic partnerships, MoUs.</li>
+          <li><strong>Signal Intelligence:</strong> Targeted hiring, tech stack migrations, compliance certifications.</li>
+        </ul>
+
+        <h3>2. The Intelligence Pipeline</h3>
+        <ol class="methodology-list" style="margin-bottom: 0;">
+          <li><strong>Collection:</strong> Gathering raw data across the aforementioned sources.</li>
+          <li><strong>Normalization:</strong> Standardizing Cloud, ERP, CI/CD, and Observability assets.</li>
+          <li><strong>Scoring:</strong> Assigning proprietary metrics (e.g., Lock-in Score, Migration Score).</li>
+          <li><strong>Correlation Layer:</strong> Connecting the dots (e.g., Hiring + Cloud + ERP = Active Transformation).</li>
+          <li><strong>Actionable Output:</strong> Categorizing signals into ENGAGE, MONITOR, or STRATEGIC.</li>
+        </ol>
       </div>
     </section>
 
@@ -342,29 +390,8 @@
       </div>
     </section>
 
-    <section class="expertise" id="expertise">
-      <div>
-        <span class="section-label">Institutional Standards</span>
-        <h2>Experience in Critical Infrastructure</h2>
-      </div>
-      <div>
-        <p>Infrastructure Data Labs bridges the gap between high-level strategy and technical execution. Our methodology is rooted in international IT delivery experience within Zurich's industrial hub (ABB) and infrastructure advisory for global organizations (Deloitte / GE Vernova).</p>
-        <p><strong>Beyond Raw Data:</strong> Industrial intelligence is often fragmented and hidden across disparate sources. We aggregate and structure these signals into curated, actionable datasets designed for the rigorous standards of multinational operators and their strategic partners.</p>
-      </div>
-    </section>
-
-    <section class="cta-box">
-      <h2 style="margin-top:0">Request Dataset Access.</h2>
-      <p style="color:var(--muted); margin-bottom:30px">For custom datasets or account-specific intelligence projects.</p>
-      <a href="mailto:info@infrastructuredatalabs.com" class="btn">Contact</a>
-    </section>
-  </main>
-
-  <footer>
-    <div>© 2026 Infrastructure Data Labs | Zurich · Italy · Remote</div>
-    <div>Industrial Intelligence Division</div>
-  </footer>
-</div>
-
-</body>
-</html>
+    <span class="section-label" id="use-cases">What You Can Do With This Data</span>
+    <section class="grid-use-cases">
+      <div class="intel-item">
+        <h3>🎯 Sales & Account Targeting</h3>
+        <p>Identify Tier-1 infrastructure accounts entering transformation cycles well before public tenders.<br><br><strong>Impact:</strong> Reduce go-to-market timing by 6–12 months.
