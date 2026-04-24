@@ -208,8 +208,6 @@
       cursor: pointer;
     }
     .btn:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
-    .btn.secondary { background: transparent; color: var(--text); margin-left: 10px; }
-    .btn.secondary:hover { background: rgba(255,255,255,0.1); }
 
     footer {
       padding-top: 40px;
@@ -225,7 +223,6 @@
       .grid-intel, .grid-4, .grid-use-cases, .expertise { grid-template-columns: 1fr; }
       header { flex-direction: column; gap: 20px; align-items: flex-start; }
       .use-case-row strong { display: block; margin-bottom: 4px; }
-      .btn.secondary { margin-left: 0; margin-top: 10px; }
     }
   </style>
 </head>
@@ -250,10 +247,7 @@
     <section class="hero">
       <span class="section-label">Signals Intelligence</span>
       <h1>Strategic Intelligence for Industrial Transformation</h1>
-      <p>We structure fragmented market, procurement, and technical signals into decision-grade datasets for enterprise operators and strategic vendors.</p>
-      <div class="hero-actions">
-        <a href="mailto:info@infrastructuredatalabs.com" class="btn">Request sample dataset</a>
-      </div>
+      <p>We structure fragmented market, procurement and technical signals into decision-grade datasets for enterprise operators and strategic vendors.</p>
     </section>
 
     <span class="section-label" id="capabilities">Core Capabilities</span>
@@ -301,11 +295,11 @@
       <div>
         <h3 style="margin-top:0;">1. The Intelligence Pipeline</h3>
         <ol class="methodology-list">
-          <li><strong>Collect:</strong> Gathering technical, institutional, and market signals.</li>
-          <li><strong>Normalize:</strong> Standardizing Cloud, ERP, and Edge assets into a unified format.</li>
+          <li><strong>Collect:</strong> Gathering technical, institutional and market signals.</li>
+          <li><strong>Normalize:</strong> Standardizing Cloud, ERP and Edge assets into a unified format.</li>
           <li><strong>Score:</strong> Applying metrics like <em>Lock-in Score</em> and <em>Migration Score</em>.</li>
           <li><strong>Correlate:</strong> Connecting the dots (e.g., Hiring + Tech Spikes = Transformation).</li>
-          <li><strong>Deliver:</strong> Categorizing signals into <span style="color:#ff6b6b">ENGAGE</span>, <span style="color:#ffd93d">MONITOR</span>, or <span style="color:#6bff9d">STRATEGIC</span>.</li>
+          <li><strong>Deliver:</strong> Categorizing signals into <span style="color:#ff6b6b">ENGAGE</span>, <span style="color:#ffd93d">MONITOR</span> or <span style="color:#6bff9d">STRATEGIC</span>.</li>
         </ol>
 
         <h3>2. Trust & Data Principles</h3>
@@ -368,6 +362,20 @@
               <td><a href="https://www.italgas.it/..." target="_blank">Link</a></td>
             </tr>
             <tr>
+              <td>Stellantis</td>
+              <td>Automotive</td>
+              <td>AWS</td>
+              <td>SAP S/4HANA</td>
+              <td>CloudWatch / Datadog</td>
+              <td>AWS CodePipeline</td>
+              <td>0</td>
+              <td>0</td>
+              <td>7.9</td>
+              <td><span class="badge badge-monitor">MONITOR</span></td>
+              <td>AWS global agreement for Smart Factory and software-defined vehicles.</td>
+              <td><a href="https://www.media.stellantis.com/it-it/corporate-communications/press/stellantis-e-amazon-collaborano-per-accelerare-la-trasformazione-digitale" target="_blank">Link</a></td>
+            </tr>
+            <tr>
               <td>Enel Grids</td>
               <td>Energy</td>
               <td>AWS / Edge</td>
@@ -403,6 +411,7 @@
           <tbody>
             <tr><td>Leonardo</td><td>Azure / Oracle</td><td>SAP</td><td>Splunk</td><td>Azure DevOps</td><td>3</td><td>0</td><td>88.0</td><td><span class="badge badge-engage">ENGAGE</span></td><td>PSN digitalization tied to Microsoft stack.</td><td><a href="#" target="_blank">Link</a></td></tr>
             <tr><td>Enel</td><td>AWS</td><td>SAP S/4HANA</td><td>Dynatrace</td><td>GitHub</td><td>3</td><td>0</td><td>81.0</td><td><span class="badge badge-strategic">STRATEGIC</span></td><td>Core grid application migration to AWS.</td><td><a href="#" target="_blank">Link</a></td></tr>
+            <tr><td>A2A</td><td>AWS</td><td>SAP S/4HANA</td><td>New Relic</td><td>GitLab CI</td><td>3</td><td>0</td><td>75.0</td><td><span class="badge badge-monitor">MONITOR</span></td><td>MoU signed for massive Cloud and AI-native transition.</td><td><a href="https://www.gruppoa2a.it/..." target="_blank">Link</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -425,6 +434,7 @@
           <tbody>
             <tr><td>S2E / Scaleway</td><td>news</td><td>Cloud (Multi)</td><td>85</td><td><span class="badge badge-strategic">STRATEGIC</span></td><td>Sovereign Cloud Partnership (Design Phase).</td><td>S2E/Scaleway partnership</td><td>15 Apr 2026</td></tr>
             <tr><td>PosteMobile</td><td>news</td><td>Cloud (Multi)</td><td>80</td><td><span class="badge badge-monitor">MONITOR</span></td><td>Switch to TIM network: Q1 2026 migration.</td><td>PosteMobile transition</td><td>Q1 2026</td></tr>
+            <tr><td>ISTAT</td><td>news</td><td>Cloud (Multi)</td><td>80</td><td><span class="badge badge-engage">ENGAGE</span></td><td>PSN Agreement: migration of relevant services.</td><td>ISTAT service migration agreement</td><td>Jun 2024</td></tr>
           </tbody>
         </table>
       </div>
@@ -446,6 +456,7 @@
           <tbody>
             <tr><td>Salesforce</td><td>2026-04-17</td><td>2026-04-10</td><td><span class="status-expired">EXPIRED</span></td><td>10</td><td>Certificate expired 7 days ago</td><td>IMMEDIATE: Contact vendor</td></tr>
             <tr><td>Google Cloud</td><td>2026-04-17</td><td>2026-06-15</td><td><span class="status-expiring">EXPIRING</span></td><td>8</td><td>Expiring within 60 days</td><td>Request renewal</td></tr>
+            <tr><td>Microsoft Azure</td><td>2026-04-17</td><td>2026-12-31</td><td><span class="status-valid">VALID</span></td><td>2</td><td>Valid > 6 months</td><td>Monitor quarterly</td></tr>
           </tbody>
         </table>
       </div>
@@ -468,6 +479,7 @@
           <tbody>
             <tr><td>Consip / PA</td><td>Public Cloud SaaS</td><td>220.5 M€</td><td>2026-06-15</td><td>OPEN</td><td>9.5</td><td><span class="badge badge-engage">ENGAGE</span></td><td>Active tender access</td><td><a href="#">Link</a></td></tr>
             <tr><td>FS Italiane</td><td>Digital Infra</td><td>1.9 B€</td><td>2026-12-31</td><td>PRE-PROC</td><td>8.7</td><td><span class="badge badge-strategic">STRATEGIC</span></td><td>Position before RFP</td><td><a href="#">Link</a></td></tr>
+            <tr><td>Snam</td><td>Grid Digitalization</td><td>1.2 B€</td><td>2027-H1</td><td>EXECUTION</td><td>7.8</td><td><span class="badge badge-strategic">STRATEGIC</span></td><td>Budget approved → indirect sales opportunities</td><td><a href="https://www.snam.it/..." target="_blank">Link</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -518,8 +530,7 @@
       <h2 style="margin-top:0">Start Tracking Critical Infrastructure.</h2>
       <p style="color:var(--muted); margin-bottom:30px">Evaluate our intelligence methodology for your strategic accounts.</p>
       <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-        <a href="mailto:info@infrastructuredatalabs.com" class="btn">Request sample dataset</a>
-        <a href="mailto:info@infrastructuredatalabs.com" class="btn secondary">Request full dataset access</a>
+        <a href="mailto:info@infrastructuredatalabs.com" class="btn">Contact</a>
       </div>
     </section>
   </main>
