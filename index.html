@@ -44,7 +44,7 @@
 
     .brand { display: flex; align-items: center; gap: 14px; font-weight: 700; letter-spacing: -0.02em; font-size: 1.2rem; }
     .mark { width: 32px; height: 32px; background: var(--accent); border-radius: 6px; display: grid; place-items: center; color: var(--bg); font-weight: 900; }
-    .nav { display: flex; gap: 24px; font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; flex-wrap: wrap; }
+    .nav { display: flex; gap: 32px; font-size: 0.9rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; flex-wrap: wrap; }
     .nav a { text-decoration: none; color: inherit; transition: 0.2s; }
     .nav a:hover { color: var(--accent); }
 
@@ -63,7 +63,6 @@
       max-width: 65ch;
       margin-bottom: 40px;
     }
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 
     .section-label {
       font-size: 0.75rem;
@@ -75,17 +74,32 @@
       font-weight: 700;
     }
 
-    /* Griglie flessibili */
-    .grid-4, .grid-3, .grid-2 {
+    .grid-intel {
       display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 2px;
       background: var(--line);
       border: 1px solid var(--line);
       margin-bottom: 80px;
     }
-    .grid-4 { grid-template-columns: repeat(4, 1fr); }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-bottom: 80px;
+    }
+    
+    .grid-use-cases {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-bottom: 80px;
+    }
 
     .intel-item {
       background: var(--bg);
@@ -95,7 +109,7 @@
     .intel-item p { font-size: 0.95rem; color: var(--muted); margin: 0; }
 
     /* DATA LIBRARY STYLES */
-    .data-library { padding: 80px 0; border-top: 1px solid var(--line); }
+    .data-library { padding: 80px 0; }
     .table-container {
       background: var(--card);
       border: 1px solid var(--line);
@@ -127,7 +141,7 @@
       border-radius: 4px;
     }
 
-    table { width: 100%; border-collapse: collapse; text-align: left; min-width: 1000px; }
+    table { width: 100%; border-collapse: collapse; text-align: left; min-width: 1200px; }
     th { padding: 16px 24px; font-size: 0.7rem; text-transform: uppercase; color: var(--muted2); background: rgba(255,255,255,0.01); border-bottom: 1px solid var(--line); }
     td { padding: 16px 24px; border-bottom: 1px solid var(--line); font-size: 0.85rem; vertical-align: top; }
     
@@ -170,9 +184,8 @@
       padding: 32px;
       margin-bottom: 80px;
     }
-    .use-case-box h3 { margin-top: 0; color: var(--text); }
     .use-case-row { margin-bottom: 16px; font-size: 0.95rem; }
-    .use-case-row strong { color: var(--accent2); display: inline-block; width: 180px; }
+    .use-case-row strong { color: var(--accent2); display: inline-block; width: 200px; }
 
     .cta-box {
       background: linear-gradient(90deg, #0a1629, #07111f);
@@ -192,9 +205,10 @@
       transition: 0.2s;
       text-decoration: none;
       border: 1px solid var(--text);
+      cursor: pointer;
     }
     .btn:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
-    .btn.secondary { background: transparent; color: var(--text); }
+    .btn.secondary { background: transparent; color: var(--text); margin-left: 10px; }
     .btn.secondary:hover { background: rgba(255,255,255,0.1); }
 
     footer {
@@ -208,9 +222,10 @@
     }
 
     @media (max-width: 900px) {
-      .grid-4, .grid-3, .grid-2, .expertise { grid-template-columns: 1fr; }
+      .grid-intel, .grid-4, .grid-use-cases, .expertise { grid-template-columns: 1fr; }
       header { flex-direction: column; gap: 20px; align-items: flex-start; }
       .use-case-row strong { display: block; margin-bottom: 4px; }
+      .btn.secondary { margin-left: 0; margin-top: 10px; }
     }
   </style>
 </head>
@@ -224,7 +239,7 @@
     </div>
     <nav class="nav">
       <a href="#capabilities">Capabilities</a>
-      <a href="#audience">Audience</a>
+      <a href="#who">Audience</a>
       <a href="#methodology">Methodology</a>
       <a href="#data">Data Library</a>
       <a href="#use-cases">Use Cases</a>
@@ -242,7 +257,7 @@
     </section>
 
     <span class="section-label" id="capabilities">Core Capabilities</span>
-    <section class="grid-3">
+    <section class="grid-intel">
       <div class="intel-item">
         <h3>Cross-Platform Mapping</h3>
         <p>Mapping critical links across the entire industrial stack—including Cloud, ERP and Edge assets—to ensure seamless integration and avoid operational downtime.</p>
@@ -257,23 +272,23 @@
       </div>
     </section>
 
-    <span class="section-label" id="audience">Who It Is For</span>
+    <span class="section-label" id="who">Who It Is For</span>
     <section class="grid-4">
       <div class="intel-item">
         <h3>Industrial Tech Providers</h3>
-        <p>e.g., ABB-like, Siemens-like</p>
+        <p>Strategic sales and product teams (e.g., ABB-like, Siemens-like).</p>
       </div>
       <div class="intel-item">
         <h3>Energy & Infra Groups</h3>
-        <p>e.g., TSO, DSO, Utility Operators</p>
+        <p>Asset owners and operators (e.g., TSO, DSO, Utility Operators).</p>
       </div>
       <div class="intel-item">
         <h3>Tier-1 Consultancies</h3>
-        <p>e.g., Deloitte, Accenture-like</p>
+        <p>Infrastructure advisory (e.g., Deloitte, Accenture-like).</p>
       </div>
       <div class="intel-item">
-        <h3>Enterprise Software Vendors</h3>
-        <p>e.g., Cloud Hyperscalers, ERP</p>
+        <h3>Cloud & Software Vendors</h3>
+        <p>Enterprise Hyperscalers and ERP transition leads.</p>
       </div>
     </section>
 
@@ -281,19 +296,19 @@
       <div>
         <span class="section-label">How We Build Intelligence</span>
         <h2>From Raw Signals to Decision-Grade Data</h2>
-        <p style="margin-top: 16px;">We do not provide raw data feeds. We structure fragmented industrial signals into actionable, highly defensible intelligence built for strategic planning and procurement tracking.</p>
+        <p style="margin-top: 16px;">We do not provide raw data feeds. We structure fragmented industrial signals into actionable, highly defensible intelligence built for strategic planning.</p>
       </div>
       <div>
         <h3 style="margin-top:0;">1. The Intelligence Pipeline</h3>
-        <ol class="methodology-list" style="margin-bottom: 30px;">
+        <ol class="methodology-list">
           <li><strong>Collect:</strong> Gathering technical, institutional, and market signals.</li>
-          <li><strong>Normalize:</strong> Standardizing disparate data points (Cloud, ERP, CI/CD) into a unified format.</li>
-          <li><strong>Score:</strong> Applying proprietary metrics including <em>Lock-in Score</em>, <em>Migration Score</em>, and <em>Signal Strength</em>.</li>
-          <li><strong>Correlate:</strong> Connecting the dots (e.g., Hiring spikes + M&A News = Active Transformation).</li>
-          <li><strong>Deliver:</strong> Categorizing output into precise actions: <span style="color:#ff6b6b">ENGAGE</span>, <span style="color:#ffd93d">MONITOR</span>, or <span style="color:#6bff9d">STRATEGIC</span>.</li>
+          <li><strong>Normalize:</strong> Standardizing Cloud, ERP, and Edge assets into a unified format.</li>
+          <li><strong>Score:</strong> Applying metrics like <em>Lock-in Score</em> and <em>Migration Score</em>.</li>
+          <li><strong>Correlate:</strong> Connecting the dots (e.g., Hiring + Tech Spikes = Transformation).</li>
+          <li><strong>Deliver:</strong> Categorizing signals into <span style="color:#ff6b6b">ENGAGE</span>, <span style="color:#ffd93d">MONITOR</span>, or <span style="color:#6bff9d">STRATEGIC</span>.</li>
         </ol>
 
-        <h3 id="trust">2. Trust & Data Principles</h3>
+        <h3>2. Trust & Data Principles</h3>
         <ul class="methodology-list" style="margin-bottom: 0;">
           <li>Public, licensed and proprietary signals where applicable.</li>
           <li>Structured for strategic intelligence and risk analysis.</li>
@@ -311,34 +326,36 @@
         <div class="table-header">
           <h3>1. Unified Enterprise Architecture</h3>
           <div class="meta-bar">
-            <span><strong>Source Type:</strong> Institutional / Market</span>
+            <span><strong>Source:</strong> Institutional / Market</span>
             <span><strong>Confidence:</strong> High</span>
-            <span><strong>Geography:</strong> Italy / EU</span>
-            <span><strong>Sector:</strong> Energy & Utilities</span>
             <span><strong>Updated:</strong> Example as of Q1 2026</span>
+            <span><strong>Sector:</strong> Energy & Utilities</span>
           </div>
         </div>
         <table>
           <thead>
             <tr>
-              <th>Company</th><th>Cloud Stack</th><th>ERP</th><th>Observability</th><th>CI/CD</th><th>Hiring</th><th>Migrations</th><th>Lock-in Score</th><th>Action</th><th>Evidence</th>
+              <th>Company</th><th>Sector</th><th>Cloud Stack</th><th>ERP</th><th>Observability</th><th>CI/CD</th><th>Hiring</th><th>Migrations</th><th>Lock-in Score</th><th>Action</th><th>Reason / Evidence</th><th>Source</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Terna</td>
-              <td>Private / Cloud-Native</td>
+              <td>Energy / Grid</td>
+              <td>Private Cloud</td>
               <td>SAP S/4HANA</td>
-              <td>Splunk / Prom.</td>
+              <td>Splunk</td>
               <td>Azure DevOps</td>
               <td>0</td>
               <td>1</td>
               <td>8.6</td>
               <td><span class="badge badge-strategic">STRATEGIC</span></td>
               <td>24-28 Plan: €2 billion for network digitalization.</td>
+              <td><a href="https://www.terna.it/..." target="_blank">Link</a></td>
             </tr>
             <tr>
               <td>Italgas</td>
+              <td>Utilities</td>
               <td>Azure / GCP</td>
               <td>SAP (100% Cloud)</td>
               <td>Dynatrace</td>
@@ -348,21 +365,11 @@
               <td>8.2</td>
               <td><span class="badge badge-strategic">STRATEGIC</span></td>
               <td>Digital Factory & D-Drive: 100% Cloud migration done.</td>
-            </tr>
-            <tr>
-              <td>Stellantis</td>
-              <td>AWS</td>
-              <td>SAP S/4HANA</td>
-              <td>Datadog</td>
-              <td>AWS CodePipe</td>
-              <td>0</td>
-              <td>0</td>
-              <td>7.9</td>
-              <td><span class="badge badge-monitor">MONITOR</span></td>
-              <td>AWS global agreement for Smart Factory transition.</td>
+              <td><a href="https://www.italgas.it/..." target="_blank">Link</a></td>
             </tr>
             <tr>
               <td>Enel Grids</td>
+              <td>Energy</td>
               <td>AWS / Edge</td>
               <td>SAP</td>
               <td>New Relic</td>
@@ -372,6 +379,7 @@
               <td>7.5</td>
               <td><span class="badge badge-monitor">MONITOR</span></td>
               <td>Grid Futurability: substation modernization via Edge.</td>
+              <td><a href="https://www.enel.com/..." target="_blank">Link</a></td>
             </tr>
           </tbody>
         </table>
@@ -381,22 +389,20 @@
         <div class="table-header">
           <h3>2. Vendor Lock-In Analysis</h3>
           <div class="meta-bar">
-            <span><strong>Source Type:</strong> Signal-based / Tech</span>
-            <span><strong>Confidence:</strong> Medium-High</span>
-            <span><strong>Geography:</strong> EU</span>
-            <span><strong>Updated:</strong> Example as of Q1 2026</span>
+            <span><strong>Source:</strong> Signal-based</span>
+            <span><strong>Confidence:</strong> High</span>
+            <span><strong>Updated:</strong> Jan 2026</span>
           </div>
         </div>
         <table>
           <thead>
             <tr>
-              <th>Company</th><th>Cloud</th><th>ERP</th><th>Observability</th><th>CI/CD</th><th>Signals</th><th>Lock-in Score</th><th>Action</th><th>Reason</th>
+              <th>Company</th><th>Cloud</th><th>ERP</th><th>Observability</th><th>CI/CD</th><th>Signals</th><th>Hiring</th><th>Lock-in Score</th><th>Action</th><th>Reason</th><th>Source</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>Leonardo</td><td>Azure / Oracle</td><td>SAP</td><td>Splunk</td><td>Azure DevOps</td><td>3</td><td>88.0</td><td><span class="badge badge-engage">ENGAGE</span></td><td>PSN digitalization tied to Microsoft/Oracle stack.</td></tr>
-            <tr><td>Enel</td><td>AWS</td><td>SAP S/4HANA</td><td>Dynatrace</td><td>GitHub</td><td>3</td><td>81.0</td><td><span class="badge badge-strategic">STRATEGIC</span></td><td>Core grid application migration to AWS services.</td></tr>
-            <tr><td>A2A</td><td>AWS</td><td>SAP S/4HANA</td><td>New Relic</td><td>GitLab CI</td><td>3</td><td>75.0</td><td><span class="badge badge-monitor">MONITOR</span></td><td>MoU signed for massive Cloud and AI-native transition.</td></tr>
+            <tr><td>Leonardo</td><td>Azure / Oracle</td><td>SAP</td><td>Splunk</td><td>Azure DevOps</td><td>3</td><td>0</td><td>88.0</td><td><span class="badge badge-engage">ENGAGE</span></td><td>PSN digitalization tied to Microsoft stack.</td><td><a href="#" target="_blank">Link</a></td></tr>
+            <tr><td>Enel</td><td>AWS</td><td>SAP S/4HANA</td><td>Dynatrace</td><td>GitHub</td><td>3</td><td>0</td><td>81.0</td><td><span class="badge badge-strategic">STRATEGIC</span></td><td>Core grid application migration to AWS.</td><td><a href="#" target="_blank">Link</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -405,10 +411,9 @@
         <div class="table-header">
           <h3>3. Market Signals & Migration Map</h3>
           <div class="meta-bar">
-            <span><strong>Source Type:</strong> Market / PR</span>
-            <span><strong>Confidence:</strong> High</span>
-            <span><strong>Sector:</strong> Telco / Public Admin</span>
-            <span><strong>Updated:</strong> Example as of Jan 2026</span>
+            <span><strong>Source:</strong> Market News / MoUs</span>
+            <span><strong>Confidence:</strong> Medium-High</span>
+            <span><strong>Geography:</strong> Italy</span>
           </div>
         </div>
         <table>
@@ -418,9 +423,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>S2E / Scaleway</td><td>news</td><td>Cloud (Multi)</td><td>85</td><td><span class="badge badge-strategic">STRATEGIC</span></td><td>Sovereign Cloud Partnership (Design Phase).</td><td>S2E and Scaleway sovereign cloud partnership</td><td>15 Apr 2026</td></tr>
-            <tr><td>PosteMobile</td><td>news</td><td>Cloud (Multi)</td><td>80</td><td><span class="badge badge-monitor">MONITOR</span></td><td>Switch to TIM network: Q1 2026 migration.</td><td>PosteMobile, transition to TIM network</td><td>Q1 2026</td></tr>
-            <tr><td>ISTAT</td><td>news</td><td>Cloud (Multi)</td><td>80</td><td><span class="badge badge-engage">ENGAGE</span></td><td>PSN Agreement: migration of relevant services.</td><td>ISTAT service migration agreement</td><td>Jun 2024</td></tr>
+            <tr><td>S2E / Scaleway</td><td>news</td><td>Cloud (Multi)</td><td>85</td><td><span class="badge badge-strategic">STRATEGIC</span></td><td>Sovereign Cloud Partnership (Design Phase).</td><td>S2E/Scaleway partnership</td><td>15 Apr 2026</td></tr>
+            <tr><td>PosteMobile</td><td>news</td><td>Cloud (Multi)</td><td>80</td><td><span class="badge badge-monitor">MONITOR</span></td><td>Switch to TIM network: Q1 2026 migration.</td><td>PosteMobile transition</td><td>Q1 2026</td></tr>
           </tbody>
         </table>
       </div>
@@ -429,9 +433,8 @@
         <div class="table-header">
           <h3>4. Vendor Compliance & Lifecycle Risks</h3>
           <div class="meta-bar">
-            <span><strong>Source Type:</strong> Signal-based</span>
-            <span><strong>Confidence:</strong> Medium</span>
-            <span><strong>Updated:</strong> Example as of Q1 2026</span>
+            <span><strong>Source:</strong> Technical Signals</span>
+            <span><strong>Confidence:</strong> High</span>
           </div>
         </div>
         <table>
@@ -443,7 +446,6 @@
           <tbody>
             <tr><td>Salesforce</td><td>2026-04-17</td><td>2026-04-10</td><td><span class="status-expired">EXPIRED</span></td><td>10</td><td>Certificate expired 7 days ago</td><td>IMMEDIATE: Contact vendor</td></tr>
             <tr><td>Google Cloud</td><td>2026-04-17</td><td>2026-06-15</td><td><span class="status-expiring">EXPIRING</span></td><td>8</td><td>Expiring within 60 days</td><td>Request renewal</td></tr>
-            <tr><td>Microsoft Azure</td><td>2026-04-17</td><td>2026-12-31</td><td><span class="status-valid">VALID</span></td><td>2</td><td>Valid > 6 months</td><td>Monitor quarterly</td></tr>
           </tbody>
         </table>
       </div>
@@ -452,64 +454,52 @@
         <div class="table-header">
           <h3>5. Transformation Tenders & Budget Signals</h3>
           <div class="meta-bar">
-            <span><strong>Source Type:</strong> Institutional / Tenders</span>
-            <span><strong>Confidence:</strong> High</span>
+            <span><strong>Source:</strong> Institutional / Tenders</span>
             <span><strong>Geography:</strong> Italy</span>
-            <span><strong>Updated:</strong> Example as of Q1 2026</span>
+            <span><strong>Status:</strong> Open / Pre-Procurement</span>
           </div>
         </div>
         <table>
           <thead>
             <tr>
-              <th>Buyer Org</th><th>Project Type</th><th>Est. Budget</th><th>Deadline</th><th>Stage</th><th>Urgency</th><th>Recommended Action</th><th>Trigger</th>
+              <th>Buyer Org</th><th>Project Type</th><th>Est. Budget</th><th>Deadline</th><th>Stage</th><th>Urgency</th><th>Recommended Action</th><th>Trigger</th><th>Source</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>Consip / PA</td><td>Public Cloud SaaS</td><td>220.5 M€</td><td>2026-06-15</td><td>OPEN TENDER</td><td>9.5</td><td><span class="badge badge-engage">ENGAGE</span></td><td>Active tender → access via Tier-1 partners</td></tr>
-            <tr><td>FS Italiane (RFI)</td><td>Digital Infra & IoT</td><td>1.9 B€</td><td>2026-12-31</td><td>PRE-PROCUREMENT</td><td>8.7</td><td><span class="badge badge-strategic">STRATEGIC</span></td><td>Budget allocated, vendors not yet finalized</td></tr>
-            <tr><td>Snam</td><td>Grid Digitalization</td><td>1.2 B€</td><td>2027-H1</td><td>EXECUTION</td><td>7.8</td><td><span class="badge badge-monitor">MONITOR</span></td><td>Budget approved → indirect sales opportunities</td></tr>
+            <tr><td>Consip / PA</td><td>Public Cloud SaaS</td><td>220.5 M€</td><td>2026-06-15</td><td>OPEN</td><td>9.5</td><td><span class="badge badge-engage">ENGAGE</span></td><td>Active tender access</td><td><a href="#">Link</a></td></tr>
+            <tr><td>FS Italiane</td><td>Digital Infra</td><td>1.9 B€</td><td>2026-12-31</td><td>PRE-PROC</td><td>8.7</td><td><span class="badge badge-strategic">STRATEGIC</span></td><td>Position before RFP</td><td><a href="#">Link</a></td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <span class="section-label">Applied Intelligence</span>
-    <h2>Illustrative Scenario</h2>
+    <span class="section-label">Example Scenario</span>
+    <h2>Illustrative Use Case</h2>
     <div class="use-case-box">
-      <div class="use-case-row">
-        <strong>Context:</strong> A national utility operator announces a 3-year strategic framework for grid resilience, but vendor details remain private.
-      </div>
-      <div class="use-case-row">
-        <strong>Signals observed:</strong> Surge in Cloud-native engineering job postings (Azure focus). Legacy ERP technical certifications expiring within 14 months.
-      </div>
-      <div class="use-case-row">
-        <strong>Interpretation:</strong> The operator is quietly preparing a massive shift from on-premise ERP to cloud environments before the formal RFP is drafted.
-      </div>
-      <div class="use-case-row">
-        <strong>Recommended action:</strong> <span class="badge badge-engage">ENGAGE</span>. Enterprise cloud vendors and integrators should bypass standard procurement cycles and initiate strategic pilot discussions now.
-      </div>
-      <div class="use-case-row">
-        <strong>Potential business impact:</strong> Positioning 6-9 months ahead of the competitive tender, radically increasing win probability on a high-value transformation project.
-      </div>
+      <div class="use-case-row"><strong>Context:</strong> A national utility operator announces a 3-year strategic framework for grid resilience.</div>
+      <div class="use-case-row"><strong>Signals observed:</strong> Surge in Cloud-native engineering job postings (Azure focus); Legacy ERP certifications expiring in 14 months.</div>
+      <div class="use-case-row"><strong>Interpretation:</strong> The operator is preparing a massive shift from on-prem to cloud ERP before the formal RFP is drafted.</div>
+      <div class="use-case-row"><strong>Recommended action:</strong> <span class="badge badge-engage">ENGAGE</span>. Vendors should initiate strategic discussions 6 months ahead of tender.</div>
+      <div class="use-case-row"><strong>Business impact:</strong> Radical increase in win probability by shaping the technical requirements early.</div>
     </div>
 
     <span class="section-label" id="use-cases">What You Can Do With This Data</span>
-    <section class="grid-2">
+    <section class="grid-use-cases">
       <div class="intel-item">
         <h3>🎯 Sales & Account Targeting</h3>
-        <p>Identify Tier-1 infrastructure accounts entering transformation cycles well before public tenders.<br><br><strong>Impact:</strong> Reduce go-to-market timing by 6–12 months. When they start hiring DevOps and changing their ERP stack, you are already in the room.</p>
+        <p>Identify Tier-1 infrastructure accounts entering transformation cycles well before public tenders.</p>
       </div>
       <div class="intel-item">
         <h3>⚠️ Vendor Risk & Lock-in</h3>
-        <p>Detect critical dependencies on specific vendors across cloud and infrastructure layers.<br><br><strong>Impact:</strong> If an operator is 100% tied to a single legacy stack, that lock-in is a security risk for them and an immediate wedge opportunity for alternative providers.</p>
+        <p>Detect critical dependencies on specific vendors across cloud and infrastructure layers.</p>
       </div>
       <div class="intel-item">
         <h3>💰 Investment Forecasting</h3>
-        <p>Anticipate infrastructure investments 12–24 months before tender release.<br><br><strong>Impact:</strong> By crossing industrial plans with hiring spikes and strategic partnerships, you can pinpoint where budget is already allocated but unannounced.</p>
+        <p>Anticipate infrastructure investments 12–24 months before tender release.</p>
       </div>
       <div class="intel-item">
         <h3>🔄 Migration Tracking</h3>
-        <p>Track real vs. declared digital transformation progress.<br><br><strong>Impact:</strong> Spot the gap. An account claims to be "cloud-first" but heavily relies on on-prem legacy tools? That operational friction is a prime target for strategic consulting engagements.</p>
+        <p>Track real vs. declared digital transformation progress.</p>
       </div>
     </section>
 
@@ -519,15 +509,15 @@
         <h2>Experience in Critical Infrastructure</h2>
       </div>
       <div>
-        <p>Infrastructure Data Labs bridges the gap between high-level strategy and technical execution. Our methodology is rooted in international IT delivery experience within Zurich's industrial hub (ABB) and infrastructure advisory for global organizations (Deloitte / GE Vernova).</p>
-        <p><strong>Beyond Raw Data:</strong> Industrial intelligence is often fragmented and hidden across disparate sources. We aggregate and structure these signals into curated, actionable datasets designed for the rigorous standards of multinational operators and their strategic partners.</p>
+        <p>Our methodology is rooted in international IT delivery experience within Zurich's industrial hub (ABB) and infrastructure advisory for global organizations (Deloitte / GE Vernova).</p>
+        <p><strong>Beyond Raw Data:</strong> We aggregate and structure signals into curated, actionable datasets designed for the rigorous standards of multinational operators.</p>
       </div>
     </section>
 
     <section class="cta-box">
       <h2 style="margin-top:0">Start Tracking Critical Infrastructure.</h2>
       <p style="color:var(--muted); margin-bottom:30px">Evaluate our intelligence methodology for your strategic accounts.</p>
-      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
         <a href="mailto:info@infrastructuredatalabs.com" class="btn">Request sample dataset</a>
         <a href="mailto:info@infrastructuredatalabs.com" class="btn secondary">Request full dataset access</a>
       </div>
