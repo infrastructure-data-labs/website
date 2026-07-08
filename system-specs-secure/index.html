@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Questo tag nasconde la pagina dai motori di ricerca -->
     <meta name="robots" content="noindex, nofollow">
     <title>Technical Specifications - Secure Access</title>
     <style>
@@ -32,9 +31,9 @@
     <ul>
         <li><strong>Predictive Behavioral Alerting:</strong> the engine identifies hostile intent from formation geometry, convergence dynamics and heading evolution, delivering actionable alerts significantly earlier than proximity-based triggers across multiple threat profiles</li>
         <li><strong>Multi-scenario Threat Classification:</strong> validated across coordinated strikes, deceptive probing, encirclement patterns, decoy maneuvers, swarm splits, etc., each classified independently in real time</li>
-        <li><strong>False Positive Suppression:</strong> the classification layer is built to filter spurious tracks from among others weather clutter, RF interference and sensor noise before they reach the operator display, preserving decisional authority when the real threat arrives.</li>
-        <li><strong>Meteorological & Degradation Margins:</strong> dynamically scales threat and risk buffers under severe atmospheric conditions (including dense fog, heavy rain and patchy mist) to systematically protect against sensor-blindness gaps</li>
-        <li><strong>Deception Isolation:</strong> dual-track classification continuously re-evaluates deception probability against kinematic data as threat behavior evolves</li>
+        <li><strong>EW-Resilient False Positive Suppression:</strong> The classification layer is built to filter out active jamming clutter, hostile RF deception, atmospheric noise, and sensor degradation before they reach the operator display, preserving decision authority under electronic attack</li>
+        <li><strong>EW & Environmental Degradation Margins:</strong> Automatically scales tactical threat and risk buffers when sensors suffer high noise or degradation due to severe weather (dense fog, rain) or active electronic countermeasures, covering critical sensor-blindness gaps.</li>
+        <li><strong>Deception & Spoofing Isolation:</strong> Dual-track classification continuously identifies kinematic spoofing (such as GPS manipulation, artificial speed deltas, and coordinated decoy splits) from real targets using unsupervised Isolation Forest anomaly vectoring</li>
         <li><strong>Tactical-Contextual Risk Divergence & Live Diagnostics:</strong> Computes a dynamic operational risk score separating raw physical threat vectors from tactical reality, factoring in real-time sensor uncertainty, proximity-escalation physics and Rules of Engagement constraints (such as commercial flight path proximity). The engine instantly delivers human-readable diagnostics on the operator HUD explaining the exact cause of any risk mismatch (e.g., sensor degradation, dense fog or ROE adjustments) to support rapid, high-confidence decision-making</li>
         <li><strong>Class-Balanced Platt Scaling Calibration:</strong> mitigates positive-class imbalances using class-balanced scaling weights, drastically reducing false-alarm fatigue while resolving high-density coordinated threats cleanly above the operational action threshold</li>
         <li><strong>Calibrated Probabilistic Output:</strong> intent probabilities are calibrated for operational engagement decisions, not raw ML scores passed directly to the operator</li>
